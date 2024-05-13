@@ -14,6 +14,7 @@
 ---
 >### Commit Template
 >- Aftere modify and creation open the terminal and run below command  
+    
     1.  git add .
 ---  
     2.  git commti
