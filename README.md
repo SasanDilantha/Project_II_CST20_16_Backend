@@ -13,10 +13,11 @@
 
 ---
 >### Commit Template
->>- Aftere modify and creation open the terminal and run below command
->>> 1.  ``git add .``
->>> 2.  ``git commti``
->>- If you run abow command, now you can see open text editor for enter the commit. Then you shoud have to folow template for the commit  
+>- Aftere modify and creation open the terminal and run below command  
+    1.  git add .
+---  
+    2.  git commti
+>- If you run abow command, now you can see open text editor for enter the commit. Then you shoud have to folow template for the commit  
 
     <type>[optional scope]: <description> 
 
@@ -24,21 +25,16 @@
 
     [optional foot(s)]
  
-
->>> More details about this template goto [Conventional commits](https://www.conventionalcommits.org/en/v1.0.0/)
+> More details about this template goto [Conventional commits](https://www.conventionalcommits.org/en/v1.0.0/)
 
 ---
 
->>- Or you can use below example type (This is my 1st commit for this project)  
+>- Or you can use below example type (This is my 1st commit for this project)  
 
     git commit -m "feat: initialize project repository and structure 
 
     - Initiate the project repository
     - Divide the project into backend and frontend
     - Add guidelines for creating commits, pull requests, and other project-related things in README.md"
-
-
-
-
 
 ---
