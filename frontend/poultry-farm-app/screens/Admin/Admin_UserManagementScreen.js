@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, ScrollView, Modal, Alert, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Picker } from '@react-native-picker/picker';
+import { useTheme } from '../../theme/ThemeContext';
 
 const UserManagementScreen = () => {
+  const { theme } = useTheme();
   const [selectedFarm, setSelectedFarm] = useState('');
   const [showEmployees, setShowEmployees] = useState(false);
   const [employees, setEmployees] = useState([
@@ -85,11 +87,10 @@ const UserManagementScreen = () => {
 
   const filteredEmployees = employees.filter(employee => employee.farm === selectedFarm);
   const employeeCount = filteredEmployees.length;
-  
 
   return (
-    <ScrollView style={styles.container}>
-      <Text style={styles.title}>User Management</Text>
+    <ScrollView style={[styles.container, { backgroundColor: theme.background }]}>
+      {/* <Text style={[styles.title, { color: theme.text }]}>User Management</Text> */}
 
       <Picker
         selectedValue={selectedFarm}
@@ -97,7 +98,7 @@ const UserManagementScreen = () => {
           setSelectedFarm(itemValue);
           setShowEmployees(false);
         }}
-        style={styles.picker}
+        style={[styles.picker, { color: theme.text }]}
       >
         <Picker.Item label="Select Farm" value="" />
         <Picker.Item label="Happy Farm" value="Happy Farm" />
@@ -107,17 +108,16 @@ const UserManagementScreen = () => {
       {selectedFarm ? (
         <>
           {!showEmployees && (
-            <View style={styles.summaryCard}>
-              <Text style={styles.summaryText}>Farm: {selectedFarm}</Text>
-              <Text style={styles.summaryText}>Total Employees: {employeeCount}</Text>
-              <Text ></Text>
-                            
-              <TouchableOpacity style={styles.button} onPress={() => setShowEmployees(true)}>
+            <View style={[styles.summaryCard, { backgroundColor: theme.secondary }]}>
+              <Text style={[styles.summaryText, { color: theme.text }]}>Farm: {selectedFarm}</Text>
+              <Text style={[styles.summaryText, { color: theme.text }]}>Total Employees: {employeeCount}</Text>
+              
+              <TouchableOpacity style={[styles.button, { backgroundColor: theme.primary }]} onPress={() => setShowEmployees(true)}>
                 <Icon name="account-multiple" size={24} color="#fff" />
                 <Text style={styles.buttonText}>View Current Employees</Text>
               </TouchableOpacity>
               
-              <TouchableOpacity style={styles.button} onPress={() => setModalVisible(true)}>
+              <TouchableOpacity style={[styles.button, { backgroundColor: theme.primary }]} onPress={() => setModalVisible(true)}>
                 <Icon name="account-plus" size={24} color="#fff" />
                 <Text style={styles.buttonText}>Add Employee</Text>
               </TouchableOpacity>
@@ -125,7 +125,7 @@ const UserManagementScreen = () => {
           )}
         </>
       ) : (
-        <Text style={styles.selectFarmText}>Please select a farm to manage employees.</Text>
+        <Text style={[styles.selectFarmText, { color: theme.text }]}>Please select a farm to manage employees.</Text>
       )}
 
       <Modal
@@ -135,49 +135,56 @@ const UserManagementScreen = () => {
         onRequestClose={() => setModalVisible(false)}
       >
         <View style={styles.modalContainer}>
-          <View style={styles.modalView}>
-            <Text style={styles.modalTitle}>{isEditing ? 'Edit Employee' : 'Add New Employee'}</Text>
+          <View style={[styles.modalView, { backgroundColor: theme.secondary }]}>
+            <Text style={[styles.modalTitle, { color: theme.text }]}>{isEditing ? 'Edit Employee' : 'Add New Employee'}</Text>
             <TextInput
-              style={styles.input}
+              style={[styles.input, { backgroundColor: theme.background, color: theme.text }]}
               placeholder="Name"
+              placeholderTextColor={theme.text}
               value={newEmployee.name}
               onChangeText={(text) => setNewEmployee({ ...newEmployee, name: text })}
             />
             <TextInput
-              style={styles.input}
+              style={[styles.input, { backgroundColor: theme.background, color: theme.text }]}
               placeholder="Position"
+              placeholderTextColor={theme.text}
               value={newEmployee.position}
               onChangeText={(text) => setNewEmployee({ ...newEmployee, position: text })}
             />
             <TextInput
-              style={styles.input}
+              style={[styles.input, { backgroundColor: theme.background, color: theme.text }]}
               placeholder="Email"
+              placeholderTextColor={theme.text}
               value={newEmployee.email}
               onChangeText={(text) => setNewEmployee({ ...newEmployee, email: text })}
               keyboardType="email-address"
             />
             <TextInput
-              style={styles.input}
+              style={[styles.input, { backgroundColor: theme.background, color: theme.text }]}
               placeholder="Phone"
+              placeholderTextColor={theme.text}
               value={newEmployee.phone}
               onChangeText={(text) => setNewEmployee({ ...newEmployee, phone: text })}
               keyboardType="phone-pad"
             />
             <TextInput
-              style={styles.input}
+              style={[styles.input, { backgroundColor: theme.background, color: theme.text }]}
               placeholder="Address"
+              placeholderTextColor={theme.text}
               value={newEmployee.address}
               onChangeText={(text) => setNewEmployee({ ...newEmployee, address: text })}
             />
             <TextInput
-              style={styles.input}
+              style={[styles.input, { backgroundColor: theme.background, color: theme.text }]}
               placeholder="Works"
+              placeholderTextColor={theme.text}
               value={newEmployee.works}
               onChangeText={(text) => setNewEmployee({ ...newEmployee, works: text })}
             />
             <TextInput
-              style={styles.input}
+              style={[styles.input, { backgroundColor: theme.background, color: theme.text }]}
               placeholder="Salary"
+              placeholderTextColor={theme.text}
               value={newEmployee.salary}
               onChangeText={(text) => setNewEmployee({ ...newEmployee, salary: text })}
               keyboardType="numeric"
@@ -186,7 +193,7 @@ const UserManagementScreen = () => {
               <TouchableOpacity style={[styles.modalButton, styles.cancelButton]} onPress={() => setModalVisible(false)}>
                 <Text style={styles.buttonText}>Cancel</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={[styles.modalButton, styles.saveButton]} onPress={handleAddEmployee}>
+              <TouchableOpacity style={[styles.modalButton, styles.saveButton, { backgroundColor: theme.primary }]} onPress={handleAddEmployee}>
                 <Text style={styles.buttonText}>{isEditing ? "Save Changes" : "Add Employee"}</Text>
               </TouchableOpacity>
             </View>
@@ -201,14 +208,14 @@ const UserManagementScreen = () => {
         onRequestClose={() => setDeleteModalVisible(false)}
       >
         <View style={styles.modalContainer}>
-          <View style={styles.modalView}>
-            <Text style={styles.modalTitle}>Are you sure?</Text>
-            <Text>Do you really want to delete {employeeToDelete?.name}?</Text>
+          <View style={[styles.modalView, { backgroundColor: theme.secondary }]}>
+            <Text style={[styles.modalTitle, { color: theme.text }]}>Are you sure?</Text>
+            <Text style={{ color: theme.text }}>Do you really want to delete {employeeToDelete?.name}?</Text>
             <View style={styles.modalButtons}>
               <TouchableOpacity style={[styles.modalButton, styles.cancelButton]} onPress={() => setDeleteModalVisible(false)}>
                 <Text style={styles.buttonText}>No</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={[styles.modalButton, styles.deleteButton]} onPress={handleDeleteEmployee}>
+              <TouchableOpacity style={[styles.modalButton, styles.deleteButton, { backgroundColor: theme.primary }]} onPress={handleDeleteEmployee}>
                 <Text style={styles.buttonText}>Yes</Text>
               </TouchableOpacity>
             </View>
@@ -218,23 +225,23 @@ const UserManagementScreen = () => {
 
       {showEmployees && (
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Employees at {selectedFarm}</Text>
+          <Text style={[styles.sectionTitle, { color: theme.text }]}>Employees at {selectedFarm}</Text>
           {filteredEmployees.map((employee) => (
-            <View key={employee.id} style={styles.card}>
-              <Icon name="account" size={24} color="#4CAF50" style={styles.icon} />
+            <View key={employee.id} style={[styles.card, { backgroundColor: theme.secondary }]}>
+              <Icon name="account" size={24} color={theme.primary} style={styles.icon} />
               <View style={styles.cardContent}>
-                <Text style={styles.cardText}>Name: {employee.name}</Text>
-                <Text style={styles.cardText}>Position: {employee.position}</Text>
-                <Text style={styles.cardText}>Email: {employee.email}</Text>
-                <Text style={styles.cardText}>Phone: {employee.phone}</Text>
-                <Text style={styles.cardText}>Address: {employee.address}</Text>
-                <Text style={styles.cardText}>Farm: {employee.farm}</Text>
-                <Text style={styles.cardText}>Works: {employee.works}</Text>
-                <Text style={styles.cardText}>Salary: ${employee.salary}</Text>
-                <Text style={styles.cardText}>Role: {employee.role}</Text>
+                <Text style={[styles.cardText, { color: theme.text }]}>Name: {employee.name}</Text>
+                <Text style={[styles.cardText, { color: theme.text }]}>Position: {employee.position}</Text>
+                <Text style={[styles.cardText, { color: theme.text }]}>Email: {employee.email}</Text>
+                <Text style={[styles.cardText, { color: theme.text }]}>Phone: {employee.phone}</Text>
+                <Text style={[styles.cardText, { color: theme.text }]}>Address: {employee.address}</Text>
+                <Text style={[styles.cardText, { color: theme.text }]}>Farm: {employee.farm}</Text>
+                <Text style={[styles.cardText, { color: theme.text }]}>Works: {employee.works}</Text>
+                <Text style={[styles.cardText, { color: theme.text }]}>Salary: ${employee.salary}</Text>
+                <Text style={[styles.cardText, { color: theme.text }]}>Role: {employee.role}</Text>
               </View>
               <TouchableOpacity onPress={() => handleEditEmployee(employee)}>
-                <Icon name="pencil" size={24} color="#4CAF50" />
+                <Icon name="pencil" size={24} color={theme.primary} />
               </TouchableOpacity>
               <TouchableOpacity onPress={() => confirmDeleteEmployee(employee)}>
                 <Icon name="delete" size={24} color="#FF5722" style={styles.deleteIcon} />
@@ -250,12 +257,10 @@ const UserManagementScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f0f4f7',
   },
   title: {
     fontSize: 26,
     fontWeight: 'bold',
-    color: '#333',
     marginBottom: 16,
     textAlign: 'center',
     marginTop: 16,
@@ -267,7 +272,6 @@ const styles = StyleSheet.create({
   button: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#4CAF50',
     padding: 12,
     borderRadius: 8,
     marginHorizontal: 16,
@@ -296,7 +300,6 @@ const styles = StyleSheet.create({
   },
   modalView: {
     width: '90%',
-    backgroundColor: 'white',
     borderRadius: 20,
     padding: 35,
     alignItems: 'center',
@@ -330,12 +333,8 @@ const styles = StyleSheet.create({
   cancelButton: {
     backgroundColor: '#757575',
   },
-  saveButton: {
-    backgroundColor: '#4CAF50',
-  },
-  deleteButton: {
-    backgroundColor: '#FF5722',
-  },
+  saveButton: {},
+  deleteButton: {},
   section: {
     paddingHorizontal: 16,
     paddingBottom: 16,
@@ -343,11 +342,9 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 22,
     fontWeight: 'bold',
-    color: '#333',
     marginBottom: 16,
   },
   summaryCard: {
-    backgroundColor: '#fff',
     padding: 16,
     borderRadius: 8,
     marginHorizontal: 16,
@@ -356,12 +353,10 @@ const styles = StyleSheet.create({
   },
   summaryText: {
     fontSize: 18,
-    color: '#555',
     marginBottom: 4,
   },
   card: {
     flexDirection: 'row',
-    backgroundColor: '#fff',
     padding: 16,
     borderRadius: 8,
     marginBottom: 16,
@@ -380,7 +375,6 @@ const styles = StyleSheet.create({
   },
   cardText: {
     fontSize: 16,
-    color: '#555',
     marginBottom: 4,
   },
   deleteIcon: {
@@ -388,7 +382,6 @@ const styles = StyleSheet.create({
   },
   selectFarmText: {
     textAlign: 'center',
-    color: '#666',
     fontSize: 16,
     marginTop: 16,
   },

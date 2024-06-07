@@ -1,7 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
+import { useTheme } from '../../theme/ThemeContext';
 
 const NotificationScreen = () => {
+  const { theme } = useTheme();
+
   const notifications = [
     { id: '1', message: 'Daily egg collection completed.' },
     { id: '2', message: 'New batch of feed delivered.' },
@@ -9,14 +12,14 @@ const NotificationScreen = () => {
   ];
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Notifications</Text>
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      {/* <Text style={[styles.title, { color: theme.text }]}>Notifications</Text> */}
       <FlatList
         data={notifications}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <View style={styles.notification}>
-            <Text style={styles.notificationText}>{item.message}</Text>
+          <View style={[styles.notification, { backgroundColor: theme.secondary }]}>
+            <Text style={[styles.notificationText, { color: theme.text }]}>{item.message}</Text>
           </View>
         )}
       />
@@ -28,17 +31,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#f0f4f7',
   },
   title: {
     fontSize: 26,
     fontWeight: 'bold',
-    color: '#333',
     marginBottom: 16,
     textAlign: 'center',
   },
   notification: {
-    backgroundColor: '#fff',
     padding: 16,
     borderRadius: 8,
     marginBottom: 8,
@@ -50,7 +50,6 @@ const styles = StyleSheet.create({
   },
   notificationText: {
     fontSize: 16,
-    color: '#555',
   },
 });
 
