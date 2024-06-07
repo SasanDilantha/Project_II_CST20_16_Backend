@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
+import { useTheme } from '../../theme/ThemeContext';
 
 const FinanceScreen = () => {
+  const { theme } = useTheme();
   const [transactions, setTransactions] = useState([]);
   const [amount, setAmount] = useState('');
   const [description, setDescription] = useState('');
@@ -18,51 +20,53 @@ const FinanceScreen = () => {
   };
 
   return (
-    <View style={styles.container}>
-      {/* <Text style={styles.title}>Finance</Text> */}
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      {/* <Text style={[styles.title, { color: theme.text }]}>Finance</Text> */}
       <View style={styles.cardContainer}>
         <View style={[styles.card, styles.incomeCard]}>
-          <Text style={styles.cardTitle}>Income</Text>
-          <Text style={styles.cardAmount}>
+          <Text style={[styles.cardTitle, { color: theme.text }]}>Income</Text>
+          <Text style={[styles.cardAmount, { color: theme.primary }]}>
             ${transactions.filter(t => t.type === 'income').reduce((acc, t) => acc + parseFloat(t.amount), 0).toFixed(2)}
           </Text>
         </View>
         <View style={[styles.card, styles.expenseCard]}>
-          <Text style={styles.cardTitle}>Expenses</Text>
-          <Text style={styles.cardAmount}>
+          <Text style={[styles.cardTitle, { color: theme.text }]}>Expenses</Text>
+          <Text style={[styles.cardAmount, { color: theme.primary }]}>
             ${transactions.filter(t => t.type === 'expense').reduce((acc, t) => acc + parseFloat(t.amount), 0).toFixed(2)}
           </Text>
         </View>
       </View>
       <View style={styles.inputContainer}>
         <TextInput
-          style={styles.input}
+          style={[styles.input, { backgroundColor: theme.secondary, color: theme.text }]}
           placeholder="Amount"
+          placeholderTextColor={theme.text}
           keyboardType="numeric"
           value={amount}
           onChangeText={setAmount}
         />
         <TextInput
-          style={styles.input}
+          style={[styles.input, { backgroundColor: theme.secondary, color: theme.text }]}
           placeholder="Description"
+          placeholderTextColor={theme.text}
           value={description}
           onChangeText={setDescription}
         />
         <View style={styles.buttonRow}>
           <TouchableOpacity
-            style={[styles.typeButton, type === 'income' && styles.selectedButton]}
+            style={[styles.typeButton, type === 'income' ? { backgroundColor: theme.primary } : { backgroundColor: '#ccc' }]}
             onPress={() => setType('income')}
           >
             <Text style={styles.buttonText}>Income</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={[styles.typeButton, type === 'expense' && styles.selectedButton]}
+            style={[styles.typeButton, type === 'expense' ? { backgroundColor: theme.primary } : { backgroundColor: '#ccc' }]}
             onPress={() => setType('expense')}
           >
             <Text style={styles.buttonText}>Expense</Text>
           </TouchableOpacity>
         </View>
-        <TouchableOpacity style={styles.addButton} onPress={addTransaction}>
+        <TouchableOpacity style={[styles.addButton, { backgroundColor: theme.primary }]} onPress={addTransaction}>
           <Text style={styles.addButtonText}>Add Transaction</Text>
         </TouchableOpacity>
       </View>
@@ -71,8 +75,8 @@ const FinanceScreen = () => {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <View style={[styles.transaction, item.type === 'income' ? styles.incomeTransaction : styles.expenseTransaction]}>
-            <Text style={styles.transactionText}>{item.description}</Text>
-            <Text style={styles.transactionAmount}>${item.amount}</Text>
+            <Text style={[styles.transactionText, { color: theme.text }]}>{item.description}</Text>
+            <Text style={[styles.transactionAmount, { color: theme.primary }]}>${item.amount}</Text>
           </View>
         )}
         style={styles.transactionList}
@@ -85,12 +89,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#f0f4f7',
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#333',
     marginBottom: 16,
     textAlign: 'center',
   },
@@ -136,7 +138,6 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginBottom: 8,
     paddingLeft: 8,
-    backgroundColor: '#fff',
   },
   buttonRow: {
     flexDirection: 'row',
@@ -149,10 +150,6 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     alignItems: 'center',
     marginHorizontal: 8,
-    backgroundColor: '#ccc',
-  },
-  selectedButton: {
-    backgroundColor: '#4CAF50',
   },
   buttonText: {
     color: '#fff',
@@ -160,7 +157,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   addButton: {
-    backgroundColor: '#4CAF50',
     padding: 16,
     borderRadius: 8,
     alignItems: 'center',
@@ -193,7 +189,6 @@ const styles = StyleSheet.create({
   },
   transactionText: {
     fontSize: 16,
-    color: '#555',
   },
   transactionAmount: {
     fontSize: 16,

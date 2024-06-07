@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
+import { useTheme } from '../../theme/ThemeContext';
 
 const ReportScreen = () => {
+  const { theme } = useTheme();
   const [selectedFarm, setSelectedFarm] = useState('Happy Farm');
   
   const farms = [
@@ -79,12 +81,12 @@ const ReportScreen = () => {
   const farmDetails = farms.find(farm => farm.name === selectedFarm);
 
   return (
-    <ScrollView style={styles.container}>
-      <Text style={styles.header}>Farm Management Report</Text>
+    <ScrollView style={[styles.container, { backgroundColor: theme.background }]}>
+      {/* <Text style={[styles.header, { color: theme.text }]}>Farm Management Report</Text> */}
       <Picker
         selectedValue={selectedFarm}
         onValueChange={(itemValue) => setSelectedFarm(itemValue)}
-        style={styles.picker}
+        style={[styles.picker, { color: theme.text }]}
       >
         {farms.map(farm => (
           <Picker.Item key={farm.name} label={farm.name} value={farm.name} />
@@ -93,50 +95,50 @@ const ReportScreen = () => {
 
       {farmDetails && (
         <>
-          <View style={styles.section}>
-            <Text style={styles.title}>Farm Details</Text>
-            <Text style={styles.detailText}>Name: {farmDetails.name}</Text>
-            <Text style={styles.detailText}>Location: {farmDetails.location}</Text>
-            <Text style={styles.detailText}>Total Chickens: {farmDetails.chickens}</Text>
+          <View style={[styles.section, { backgroundColor: theme.secondary }]}>
+            <Text style={[styles.title, { color: theme.primary }]}>Farm Details</Text>
+            <Text style={[styles.detailText, { color: theme.text }]}>Name: {farmDetails.name}</Text>
+            <Text style={[styles.detailText, { color: theme.text }]}>Location: {farmDetails.location}</Text>
+            <Text style={[styles.detailText, { color: theme.text }]}>Total Chickens: {farmDetails.chickens}</Text>
           </View>
 
-          <View style={styles.section}>
-            <Text style={styles.title}>Chick Details</Text>
-            <Text style={styles.detailText}>Total Chicks: {farmDetails.chickDetails.totalChicks}</Text>
-            <Text style={styles.detailText}>Healthy Chicks: {farmDetails.chickDetails.healthyChicks}</Text>
-            <Text style={styles.detailText}>Sick Chicks: {farmDetails.chickDetails.sickChicks}</Text>
+          <View style={[styles.section, { backgroundColor: theme.secondary }]}>
+            <Text style={[styles.title, { color: theme.primary }]}>Chick Details</Text>
+            <Text style={[styles.detailText, { color: theme.text }]}>Total Chicks: {farmDetails.chickDetails.totalChicks}</Text>
+            <Text style={[styles.detailText, { color: theme.text }]}>Healthy Chicks: {farmDetails.chickDetails.healthyChicks}</Text>
+            <Text style={[styles.detailText, { color: theme.text }]}>Sick Chicks: {farmDetails.chickDetails.sickChicks}</Text>
           </View>
 
-          <View style={styles.section}>
-            <Text style={styles.title}>Health Report</Text>
-            <Text style={styles.detailText}>Vaccinated: {farmDetails.healthReport.vaccinated}</Text>
-            <Text style={styles.detailText}>Not Vaccinated: {farmDetails.healthReport.notVaccinated}</Text>
-            <Text style={styles.detailText}>Diseases: {farmDetails.healthReport.diseases}</Text>
+          <View style={[styles.section, { backgroundColor: theme.secondary }]}>
+            <Text style={[styles.title, { color: theme.primary }]}>Health Report</Text>
+            <Text style={[styles.detailText, { color: theme.text }]}>Vaccinated: {farmDetails.healthReport.vaccinated}</Text>
+            <Text style={[styles.detailText, { color: theme.text }]}>Not Vaccinated: {farmDetails.healthReport.notVaccinated}</Text>
+            <Text style={[styles.detailText, { color: theme.text }]}>Diseases: {farmDetails.healthReport.diseases}</Text>
           </View>
 
-          <View style={styles.section}>
-            <Text style={styles.title}>Daily Report</Text>
-            <Text style={styles.detailText}>Eggs Collected: {farmDetails.dailyReport.eggsCollected}</Text>
-            <Text style={styles.detailText}>Mortality Rate: {farmDetails.dailyReport.mortalityRate}</Text>
-            <Text style={styles.detailText}>Feed Consumed: {farmDetails.dailyReport.feedConsumed} kg</Text>
-            <Text style={styles.incomeText}>Income: ${farmDetails.dailyReport.income}</Text>
-            <Text style={styles.expenseText}>Expenses: ${farmDetails.dailyReport.expenses}</Text>
+          <View style={[styles.section, { backgroundColor: theme.secondary }]}>
+            <Text style={[styles.title, { color: theme.primary }]}>Daily Report</Text>
+            <Text style={[styles.detailText, { color: theme.text }]}>Eggs Collected: {farmDetails.dailyReport.eggsCollected}</Text>
+            <Text style={[styles.detailText, { color: theme.text }]}>Mortality Rate: {farmDetails.dailyReport.mortalityRate}</Text>
+            <Text style={[styles.detailText, { color: theme.text }]}>Feed Consumed: {farmDetails.dailyReport.feedConsumed} kg</Text>
+            <Text style={[styles.incomeText, { color: theme.primary }]}>Income: ${farmDetails.dailyReport.income}</Text>
+            <Text style={[styles.expenseText, { color: theme.primary }]}>Expenses: ${farmDetails.dailyReport.expenses}</Text>
           </View>
 
-          <View style={styles.section}>
-            <Text style={styles.title}>Monthly Report</Text>
-            <Text style={styles.detailText}>Eggs Collected: {farmDetails.monthlyReport.eggsCollected}</Text>
-            <Text style={styles.detailText}>Mortality Rate: {farmDetails.monthlyReport.mortalityRate}</Text>
-            <Text style={styles.detailText}>Feed Consumed: {farmDetails.monthlyReport.feedConsumed} kg</Text>
-            <Text style={styles.incomeText}>Income: ${farmDetails.monthlyReport.income}</Text>
-            <Text style={styles.expenseText}>Expenses: ${farmDetails.monthlyReport.expenses}</Text>
+          <View style={[styles.section, { backgroundColor: theme.secondary }]}>
+            <Text style={[styles.title, { color: theme.primary }]}>Monthly Report</Text>
+            <Text style={[styles.detailText, { color: theme.text }]}>Eggs Collected: {farmDetails.monthlyReport.eggsCollected}</Text>
+            <Text style={[styles.detailText, { color: theme.text }]}>Mortality Rate: {farmDetails.monthlyReport.mortalityRate}</Text>
+            <Text style={[styles.detailText, { color: theme.text }]}>Feed Consumed: {farmDetails.monthlyReport.feedConsumed} kg</Text>
+            <Text style={[styles.incomeText, { color: theme.primary }]}>Income: ${farmDetails.monthlyReport.income}</Text>
+            <Text style={[styles.expenseText, { color: theme.primary }]}>Expenses: ${farmDetails.monthlyReport.expenses}</Text>
           </View>
 
-          <View style={styles.section}>
-            <Text style={styles.title}>Production Rate</Text>
-            <Text style={styles.detailText}>Daily Eggs: {farmDetails.productionRate.dailyEggs}</Text>
-            <Text style={styles.detailText}>Monthly Eggs: {farmDetails.productionRate.monthlyEggs}</Text>
-            <Text style={styles.detailText}>Eggs per Chicken per Day: {farmDetails.productionRate.eggPerChickenPerDay}</Text>
+          <View style={[styles.section, { backgroundColor: theme.secondary }]}>
+            <Text style={[styles.title, { color: theme.primary }]}>Production Rate</Text>
+            <Text style={[styles.detailText, { color: theme.text }]}>Daily Eggs: {farmDetails.productionRate.dailyEggs}</Text>
+            <Text style={[styles.detailText, { color: theme.text }]}>Monthly Eggs: {farmDetails.productionRate.monthlyEggs}</Text>
+            <Text style={[styles.detailText, { color: theme.text }]}>Eggs per Chicken per Day: {farmDetails.productionRate.eggPerChickenPerDay}</Text>
           </View>
         </>
       )}
@@ -147,12 +149,10 @@ const ReportScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f0f4f7',
   },
   header: {
     fontSize: 26,
     fontWeight: 'bold',
-    color: '#333',
     marginBottom: 24,
     marginTop: 16,
     textAlign: 'center',
@@ -162,7 +162,6 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   section: {
-    backgroundColor: '#fff',
     padding: 16,
     borderRadius: 8,
     marginHorizontal: 16,
@@ -177,22 +176,18 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: 'bold',
     marginBottom: 8,
-    color: '#4CAF50',
   },
   detailText: {
     fontSize: 18,
-    color: '#555',
     marginBottom: 4,
   },
   incomeText: {
     fontSize: 18,
-    color: '#4CAF50',
     marginBottom: 4,
     fontWeight: 'bold',
   },
   expenseText: {
     fontSize: 18,
-    color: '#FF5722',
     marginBottom: 4,
     fontWeight: 'bold',
   },
