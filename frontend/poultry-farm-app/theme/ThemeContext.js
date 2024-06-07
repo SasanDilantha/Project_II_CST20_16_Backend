@@ -1,24 +1,23 @@
-// theme/ThemeContext.js
 import React, { createContext, useState, useContext } from 'react';
 import { Appearance } from 'react-native';
 
 const ThemeContext = createContext();
 
 const lightTheme = {
-  mode: 'light',
-  background: '#ffffff',
-  text: '#000000',
-  primary: '#4CAF50',
-  secondary: '#8BC34A',
-};
-
-const darkTheme = {
-  mode: 'dark',
-  background: '#121212',
-  text: '#ffffff',
-  primary: '#4CAF50',
-  secondary: '#8BC34A',
-};
+    mode: 'light',
+    background: '#FFF4E6', // light peach background
+    text: '#3A3A3A', // dark grey text
+    primary: '#FF8C00', // vibrant orange for primary actions
+    secondary: '#FFD700', // bright yellow for secondary actions
+  };
+  
+  const darkTheme = {
+    mode: 'dark',
+    background: '#1E1E1E', // very dark grey background
+    text: '#E0E0E0', // light grey text
+    primary: '#FF8C00', // vibrant orange for primary actions
+    secondary: '#FFD700', // bright yellow for secondary actions
+  };
 
 export const ThemeProvider = ({ children }) => {
   const colorScheme = Appearance.getColorScheme();
