@@ -9,46 +9,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserMapper {
-    public User toUserManager(UserRequest request, Integer farmId) {
-        if (request == null) {
-            return null;
-        }
-        return User.builder()
-                .user_id(request.user_id())
-                .first_name(request.first_name())
-                .last_name(request.last_name())
-                .email(request.email())
-                .phone(request.phone())
-                .password(request.password())
-                .manager(
-                        Manager.builder()
-                                .farm_id(farmId)
-                                .build()
-                )
-                .role(request.role())
-                .build();
-    }
-
-    public User toUserVet(UserRequest request, Integer farmId) {
-        if (request == null) {
-            return null;
-        }
-        return User.builder()
-                .user_id(request.user_id())
-                .first_name(request.first_name())
-                .last_name(request.last_name())
-                .email(request.email())
-                .phone(request.phone())
-                .password(request.password())
-                .veterinarian(
-                        Veterinarian.builder()
-                                .farm_id(farmId)
-                                .build()
-                )
-                .role(request.role())
-                .build();
-    }
-
     public User toUser(UserRequest request) {
         if (request == null) {
             return null;

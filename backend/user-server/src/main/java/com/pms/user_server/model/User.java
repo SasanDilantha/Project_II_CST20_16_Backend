@@ -21,8 +21,10 @@ public class User {
     private String role;
     //create relationship between manager and user
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @PrimaryKeyJoinColumn
     private Manager manager;
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @PrimaryKeyJoinColumn
     private Veterinarian veterinarian;
 
 }

@@ -18,7 +18,7 @@ public record UserRequest(
         String phone,
         @NotNull(message = "Password must be include")
         String password,
+        @NotNull(message = "User should have role")
         String role,
-        Manager manager,
-        Veterinarian veterinarian
+        String farm_code
 ) { }

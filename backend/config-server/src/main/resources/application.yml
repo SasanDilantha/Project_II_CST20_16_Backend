@@ -10,3 +10,8 @@ spring:
       server:
         native:
           search-locations: classpath:/config
+
+logging:
+  level:
+    org.springframework.cloud.config.server: DEBUG
+    org.eclipse.jgit: DEBUG

@@ -1,0 +1,17 @@
+server:
+  port: 8222
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: farm-service
+          uri: lb:http://FARM-SERVICE
+          predicates:
+            - Path=/api/farm/**
+        - id : user-server
+          uri: lb:http://USER-SERVER
+          predicates:
+            - Path=/api/user/**
