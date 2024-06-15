@@ -3,6 +3,7 @@ package com.pms.farm_service.service;
 import com.pms.farm_service.dto.FarmRequest;
 import com.pms.farm_service.dto.FarmRequestCode;
 import com.pms.farm_service.dto.FarmResponse;
+import com.pms.farm_service.genarated.RequestCode;
 import com.pms.farm_service.model.Farm;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,9 @@ public class FarmMapper {
 
     public FarmRequestCode fromFamCode(Farm farm) {
         return new FarmRequestCode(farm.getFarm_code());
+    }
+    public RequestCode fromFamCodeGen(Farm farm) {
+        return new RequestCode(farm.getFarm_code());
     }
 
     public FarmResponse fromFarm(Farm farm) {

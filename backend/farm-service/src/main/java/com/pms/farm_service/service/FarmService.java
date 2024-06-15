@@ -1,14 +1,13 @@
 package com.pms.farm_service.service;
 
 import com.pms.farm_service.dto.FarmRequest;
-import com.pms.farm_service.dto.FarmRequestCode;
 import com.pms.farm_service.dto.FarmResponse;
+import com.pms.farm_service.genarated.TableCode;
 import com.pms.farm_service.repository.FarmRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Random;
 import java.util.stream.Collectors;
 
 @Service
@@ -16,34 +15,13 @@ import java.util.stream.Collectors;
 public class FarmService {
     private final FarmRepository farmRepository;
     private final FarmMapper mapper;
+    private final TableCode tableCode;
 
     public String addFarm(FarmRequest request) {
-        String setFarmcode = createFarmCode(request.farm_location());
-        var farmObj = farmRepository.save(mapper.toFarm(request,setFarmcode));
+        tableCode.setFarmLocation(request.farm_location());
+        String farm_code = tableCode.createFarmCode();
+        var farmObj = farmRepository.save(mapper.toFarm(request,farm_code));
         return farmObj.getFarm_code();
-    }
-
-
-    // generate the farm_code
-    // set up the variable for generate farm code
-    private String createFarmCode(String location) {
-        List<FarmRequestCode> farmRequestCodes = farmRepository.findAll().stream().map(mapper::fromFamCode).toList();
-        String stringPart = location.substring(0,3);
-        return setCode(farmRequestCodes,stringPart);
-    }
-
-    // create farm code and validate it is unique
-    private String setCode(List<FarmRequestCode> farmRequestCodes, String stringPart) {
-        Random random = new Random();
-        int max = 10000, min = 0;
-        int numericPart = random.nextInt(max - min) + min;
-        String finalCode = stringPart.toUpperCase() +"-" + numericPart;
-        for(FarmRequestCode farmRequestCode : farmRequestCodes) {
-            if (farmRequestCode.farm_code().equals(finalCode)){
-                setCode(farmRequestCodes,stringPart);
-            }
-        }
-        return finalCode;
     }
 
     public List<FarmResponse> getAllFarms() {
@@ -55,5 +33,13 @@ public class FarmService {
 
     public Integer getFarmIdByFarmCode(String farmCode) {
         return farmRepository.findIdByFarmCode(farmCode);
+    }
+
+    public String getFarmCodeByFarmId(Integer farmId) {
+        return farmRepository.findFarmCodeById(farmId);
+    }
+
+    public String getFarmLocationById(Integer farm_id) {
+        return farmRepository.findFramLocationByID(farm_id);
     }
 }

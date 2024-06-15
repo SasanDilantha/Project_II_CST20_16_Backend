@@ -46,7 +46,7 @@ public class UserService {
         var user = userRepository.save(mapper.toUser(request));
 
         // check user role then save data to mgr table or vet table
-        if (request.role().equals("mgr") || request.role().equals("vet")) {
+        if (request.role().toString().equals("MGR") || request.role().toString().equals("VET")) {
             // get user id using email
             Integer user_id = getUserIDByEmail(request.email());
             // get farm id from farm service
@@ -57,7 +57,7 @@ public class UserService {
                 throw new UserServiceException("Invalid farm_code::");
             }
 
-            if(request.role().equals("mgr")) {
+            if(request.role().toString().equals("MGR")) {
                 managerRepository.save(mgrMapper.toManager(user_id, farmId,userRepository));
                 returnMessage = "New Manager successfully added! With ID::" + user.getUser_id();
             }else {

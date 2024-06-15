@@ -15,3 +15,11 @@ spring:
           uri: lb:http://USER-SERVER
           predicates:
             - Path=/api/user/**
+        - id : chick-service
+          uri: lb:http://CHICK-SERVICE
+          predicates:
+            - Path=/api/chick/**
+        - id : finace-service
+          uri: lb:http://FINACE-SERVICE
+          predicates:
+            - Path=/api/expenses/**

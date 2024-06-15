@@ -17,6 +17,7 @@ CREATE TABLE IF NOT EXISTS placement (
 CREATE TABLE IF NOT EXISTS chick_mortality (
     mortality_id INT AUTO_INCREMENT PRIMARY KEY,
     mortality_date DATE NOT NULL,
+    quantity INT NOT NULL,
     description VARCHAR(255),
     placement_id INT,
     FOREIGN KEY (placement_id) REFERENCES placement(placement_id)

@@ -1,7 +1,6 @@
 package com.pms.farm_service.dto;
 
-import com.pms.farm_service.model.ChickManure;
-import com.pms.farm_service.model.Placement;
+
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 

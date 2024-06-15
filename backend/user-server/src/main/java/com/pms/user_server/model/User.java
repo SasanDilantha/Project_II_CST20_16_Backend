@@ -18,7 +18,8 @@ public class User {
     private String email;
     private String phone;
     private String password;
-    private String role;
+    @Enumerated(EnumType.STRING)
+    private Role role;
     //create relationship between manager and user
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @PrimaryKeyJoinColumn

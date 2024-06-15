@@ -31,7 +31,7 @@ public class UserMapper {
         String email = user.getEmail();
         String phone = user.getPhone();
         String password = user.getPassword();
-        String role = user.getRole();
+        String role = user.getRole().toString();
         String managerFarmId = String.valueOf(user.getManager() != null ? user.getManager().getFarm_id() : null);
         String veterinarianFarmId = String.valueOf(user.getVeterinarian() != null ? user.getVeterinarian().getFarm_id() : null);
 

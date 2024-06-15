@@ -16,18 +16,27 @@ import java.util.List;
 public class FarmController {
     private final FarmService service;
 
+    // insert farm details
     @PostMapping
     public ResponseEntity<String> addFarm(@RequestBody  @Valid FarmRequest request) {
         return ResponseEntity.ok(service.addFarm(request));
     }
 
+    // get all farm details
     @GetMapping
     public ResponseEntity<List<FarmResponse>> getAllFarms(){
         return ResponseEntity.ok(service.getAllFarms());
     }
 
-    @GetMapping("/{farm-code}")
+    // get farm Id  related farm code
+    @GetMapping("/code/{farm-code}")
     public ResponseEntity<Integer> getFarmIdByFarmCode(@PathVariable("farm-code")  String farmCode){
         return ResponseEntity.ok(service.getFarmIdByFarmCode(farmCode));
+    }
+
+    // get farm code related farm id
+    @GetMapping("/id/{farm-id}")
+    public String getFarmCodeByFarmId(@PathVariable("farm-id")  Integer farmId){
+        return service.getFarmCodeByFarmId(farmId);
     }
 }

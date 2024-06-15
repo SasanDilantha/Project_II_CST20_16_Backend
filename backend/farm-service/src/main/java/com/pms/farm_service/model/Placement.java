@@ -22,6 +22,6 @@ public class Placement {
     private Farm farm;
     @OneToMany(mappedBy = "placement", cascade = CascadeType.ALL)
     private List<BroilerSales> broilerSales;
-    @OneToOne(mappedBy = "placement", cascade = CascadeType.ALL)
-    private ChickMortality chickMortalities;
+    @OneToMany(mappedBy = "placement", cascade = CascadeType.ALL)
+    private List<ChickMortality> chickMortalities;
 }
