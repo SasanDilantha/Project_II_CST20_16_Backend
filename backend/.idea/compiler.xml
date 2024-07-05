@@ -11,6 +11,7 @@
         <module name="farm-service" />
         <module name="discovery-server" />
         <module name="user-server" />
+        <module name="feed-service" />
         <module name="finace-service" />
         <module name="api-gateway" />
         <module name="chick-service" />
@@ -24,6 +25,7 @@
       <module name="config-server" options="-parameters" />
       <module name="discovery-server" options="-parameters" />
       <module name="farm-service" options="-parameters" />
+      <module name="feed-service" options="-parameters" />
       <module name="finace-service" options="-parameters" />
       <module name="user-server" options="-parameters" />
     </option>

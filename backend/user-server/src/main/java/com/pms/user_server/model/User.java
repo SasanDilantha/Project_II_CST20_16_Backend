@@ -20,6 +20,7 @@ public class User {
     private String password;
     @Enumerated(EnumType.STRING)
     private Role role;
+    Integer expense_id;
     //create relationship between manager and user
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @PrimaryKeyJoinColumn

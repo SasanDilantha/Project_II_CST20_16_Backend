@@ -4,7 +4,8 @@ CREATE TABLE IF NOT EXISTS income (
     date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     income_value DECIMAL(10, 2) NOT NULL,
     description VARCHAR(255),
-    farm_code VARCHAR(50)
+    farm_code VARCHAR(50),
+    income_type VARCHAR(50)
 );
 
 -- Expenses Table
@@ -13,5 +14,6 @@ CREATE TABLE IF NOT EXISTS expenses (
     date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     expense_value DECIMAL(10, 2) NOT NULL,
     description VARCHAR(255),
-    farm_code VARCHAR(50)
+    farm_code VARCHAR(50),
+    expense_type VARCHAR(50)
 );

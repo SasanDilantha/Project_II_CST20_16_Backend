@@ -27,4 +27,6 @@ public class Income {
     private BigDecimal income_value;
     private String description;
     private String farm_code;
+    @Enumerated(EnumType.STRING)
+    private Incomes income_type;
 }

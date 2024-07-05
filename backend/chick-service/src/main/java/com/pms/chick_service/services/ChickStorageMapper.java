@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public class ChickStorageMapper {
     public ChickStorage toStorage(ChickInventoryRequest request) {
         return ChickStorage.builder()
-                .chick_breed_id(request.chick_breed_id())
+                .chick_storage_id(request.chick_storage_id())
                 .breed(request.breed())
                 .chick_quantity(request.chick_quantity())
                 .age(request.age())

@@ -1,6 +1,7 @@
 package com.pms.chick_service.services;
 
 import com.pms.chick_service.dto.*;
+import com.pms.chick_service.dto.ui.response.FarmUiResponse;
 import com.pms.chick_service.model.ChickBlock;
 import com.pms.chick_service.model.ChickInventory;
 import com.pms.chick_service.model.ChickInventryCost;
@@ -44,8 +45,8 @@ public class ChickInventoryMapper {
     }
 
     public ChickBlock toBlock(BlockRequest request, Integer placementId, ChickStorageRepository storageRepository) {
-        ChickStorage storage = storageRepository.findById(request.breed_id()).orElseThrow(
-                ()-> new IllegalArgumentException("storage not found with id: " + request.breed_id())
+        ChickStorage storage = storageRepository.findById(request.storage_id()).orElseThrow(
+                ()-> new IllegalArgumentException("storage not found with id: " + request.storage_id())
         );
         return ChickBlock.builder()
                 .chick_block_id(request.block_id())
@@ -61,12 +62,20 @@ public class ChickInventoryMapper {
                 chickInventory.getChick_inventory_code(),
                 chickInventory.getAvailable_quantity(),
                 chickInventory.getExpense_id(),
-                chickInventory.getChickStorage().getChick_breed_id(),
+                chickInventory.getChickStorage().getChick_storage_id(),
                 chickInventory.getChickStorage().getBreed().toString(),
                 chickInventory.getChickStorage().getAge(),
                 chickInventory.getChickInventryCost().getPrice_per_chick(),
                 chickInventory.getChickInventryCost().getChickSupplier().getSupplier_name(),
                 chickInventory.getChickInventryCost().getChickSupplier().getSupplier_phone()
+        );
+    }
+
+    public FarmUiResponse forFarmUi(ChickInventory chickInventory) {
+        return new FarmUiResponse(
+                chickInventory.getChickStorage().getChick_quantity(),
+                chickInventory.getAvailable_quantity(),
+                chickInventory.getChickStorage().getAge()
         );
     }
 }

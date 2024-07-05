@@ -23,3 +23,7 @@ spring:
           uri: lb:http://FINACE-SERVICE
           predicates:
             - Path=/api/expenses/**
+        - id : feed-service
+          uri: lb:http://FEED-SERVICE
+          predicates:
+            - Path=/api/feed/**

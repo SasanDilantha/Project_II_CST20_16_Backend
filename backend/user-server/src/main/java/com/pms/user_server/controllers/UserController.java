@@ -3,6 +3,11 @@ package com.pms.user_server.controllers;
 import com.pms.user_server.dto.UserLoginRequest;
 import com.pms.user_server.dto.UserRequest;
 import com.pms.user_server.dto.UserResponse;
+import com.pms.user_server.dto.UserSalaryRequest;
+import com.pms.user_server.dto.client.ToUserDetails;
+import com.pms.user_server.dto.client.ToUserSalary;
+import com.pms.user_server.dto.ui.UserUpadeRequest;
+import com.pms.user_server.dto.ui.users.UserUiResponse;
 import com.pms.user_server.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -40,6 +45,25 @@ public class UserController {
     @GetMapping("/{user-id}")
     public ResponseEntity<UserResponse> getUserById(@PathVariable("user-id") Integer userId) {
         return ResponseEntity.ok(service.getUserByID(userId));
+    }
+
+    // view user details for UI
+    @GetMapping("/all/ui")
+    public ResponseEntity<List<UserUiResponse> > getAllUsersForUI() {
+        return ResponseEntity.ok(service.getAllUsersForUI());
+    }
+
+    // update user
+    @PutMapping("/update/user/details")
+    public ResponseEntity<String> updateUserDetails(@RequestBody @Valid UserUpadeRequest userRequest){
+        return  ResponseEntity.ok(service.updateUserDetails(userRequest));
+    }
+
+
+    // create or update salary
+    @PutMapping("/salary")
+    public ResponseEntity<Integer> updateOrSetSalary(@RequestBody @Valid UserSalaryRequest request) {
+        return ResponseEntity.ok(service.updateOrSetSalary(request));
     }
 
 }

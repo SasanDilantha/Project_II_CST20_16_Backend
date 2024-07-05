@@ -6,7 +6,8 @@ CREATE TABLE IF NOT EXISTS user (
     email VARCHAR(255) NOT NULL UNIQUE,
     phone VARCHAR(50),
     password VARCHAR(255) NOT NULL,
-    role VARCHAR(50) NOT NULL
+    role VARCHAR(50) NOT NULL,
+    expense_id INT
 );
 
 -- Create Manager table

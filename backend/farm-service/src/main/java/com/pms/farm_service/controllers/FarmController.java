@@ -2,6 +2,8 @@ package com.pms.farm_service.controllers;
 
 import com.pms.farm_service.dto.FarmRequest;
 import com.pms.farm_service.dto.FarmResponse;
+import com.pms.farm_service.dto.ToUserDetails;
+import com.pms.farm_service.dto.ui.response.FarmDetailsUiResponse;
 import com.pms.farm_service.service.FarmService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -28,6 +30,12 @@ public class FarmController {
         return ResponseEntity.ok(service.getAllFarms());
     }
 
+    // get all farm details for Farm Details UI
+    @GetMapping("/get/all/details")
+    public List<FarmDetailsUiResponse> getAllFarmDetails(){
+        return service.getAllFarmDetails();
+    }
+
     // get farm Id  related farm code
     @GetMapping("/code/{farm-code}")
     public ResponseEntity<Integer> getFarmIdByFarmCode(@PathVariable("farm-code")  String farmCode){
@@ -38,5 +46,11 @@ public class FarmController {
     @GetMapping("/id/{farm-id}")
     public String getFarmCodeByFarmId(@PathVariable("farm-id")  Integer farmId){
         return service.getFarmCodeByFarmId(farmId);
+    }
+
+    // get farm name and farm code by using farm id
+    @GetMapping("/user/details")
+    public List<ToUserDetails> getFarmNameAndCodeWithId(){
+        return service.getFarmNameAndCodeWithId();
     }
 }

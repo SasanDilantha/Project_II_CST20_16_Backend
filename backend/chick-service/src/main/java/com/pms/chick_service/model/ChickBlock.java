@@ -17,6 +17,6 @@ public class ChickBlock {
     private Integer placement_id;
     private Integer block_quantity;
     @ManyToOne
-    @JoinColumn(name = "chick_breed_id")
+    @JoinColumn(name = "chick_storage_id")
     private ChickStorage chick_storage;
 }

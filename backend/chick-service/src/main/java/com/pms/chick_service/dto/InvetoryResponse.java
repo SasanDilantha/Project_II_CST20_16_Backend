@@ -7,7 +7,7 @@ public record InvetoryResponse(
         String chick_inventory_code,
         Integer available_quantity,
         Integer expense_id,
-        Integer chick_breed_id,
+        Integer chick_storage_id,
         String chick_breed_name,
         Integer age,
         BigDecimal price_per_chick,

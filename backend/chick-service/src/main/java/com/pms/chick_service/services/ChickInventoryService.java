@@ -3,6 +3,7 @@ package com.pms.chick_service.services;
 import com.pms.chick_service.client.ExpenseClient;
 import com.pms.chick_service.client.PlacementClient;
 import com.pms.chick_service.dto.*;
+import com.pms.chick_service.dto.ui.response.FarmUiResponse;
 import com.pms.chick_service.model.ChickInventory;
 import com.pms.chick_service.repository.ChickBlockRepository;
 import com.pms.chick_service.repository.ChickInventoryRepository;
@@ -83,7 +84,7 @@ public class ChickInventoryService {
             if(getInvetory.isPresent()){
                 ChickInventory inventory = getInvetory.get();
                 // update quantity in block
-                int block_update = chickInventoryRepository.updateBockQuantity(request.placement_id(),request.mortality_quantity(),inventory.getChickStorage().getChick_breed_id());
+                int block_update = chickInventoryRepository.updateBockQuantity(request.placement_id(),request.mortality_quantity(),inventory.getChickStorage().getChick_storage_id());
                 if(block_update > 0) {
                     return getInvetory.get().getAvailable_quantity();
                 }
@@ -107,6 +108,13 @@ public class ChickInventoryService {
         return chickInventoryRepository.findAll()
                 .stream()
                 .map(mapper::fromAllInventory)
+                .collect(Collectors.toList());
+    }
+
+    public List<FarmUiResponse> forFarmDetails() {
+        return chickInventoryRepository.findAll()
+                .stream()
+                .map(mapper::forFarmUi)
                 .collect(Collectors.toList());
     }
 }

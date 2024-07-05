@@ -4,6 +4,7 @@ import com.pms.chick_service.dto.BlockRequest;
 import com.pms.chick_service.dto.ChickInventoryRequest;
 import com.pms.chick_service.dto.InvetoryResponse;
 import com.pms.chick_service.dto.MortalityRequest;
+import com.pms.chick_service.dto.ui.response.FarmUiResponse;
 import com.pms.chick_service.services.ChickInventoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -23,8 +24,14 @@ public class ChickInventoryController {
     }
 
     @GetMapping
-    public ResponseEntity<List<InvetoryResponse>> getAllInvetory(){
+    public ResponseEntity<List<InvetoryResponse>> getAllInventory(){
         return ResponseEntity.ok(service.getAllInvetory());
+    }
+
+    // for get all farm details for Farm Details UI
+    @GetMapping("/ui/get/farm")
+    public List<FarmUiResponse> forFarmDetails(){
+        return service.forFarmDetails();
     }
 
     @PutMapping("/update/mortality")

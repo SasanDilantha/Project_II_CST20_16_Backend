@@ -19,7 +19,7 @@ import java.util.List;
 public class ChickStorage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer chick_breed_id;
+    private Integer chick_storage_id;
     @Enumerated(EnumType.STRING)
     private Breed breed;
     private Integer chick_quantity;
