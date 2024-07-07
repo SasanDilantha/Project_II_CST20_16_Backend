@@ -27,3 +27,7 @@ spring:
           uri: lb:http://FEED-SERVICE
           predicates:
             - Path=/api/feed/**
+        - id : medication-service
+          uri: lb:http://MEDICATION-SERVICE
+          predicates:
+            - Path=/api/med/**

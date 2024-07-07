@@ -22,6 +22,18 @@ public class ExpensesController {
         return service.createChickInventory(request);
     }
 
+    // for create feed inventory details
+    @PostMapping("/feed_inventory")
+    public Integer createFeedInventory(@RequestBody ExpenseRequest request){
+        return service.createFeedInventory(request);
+    }
+
+    // for create meditation inventory details
+    @PostMapping("/meditation_inventory")
+    public Integer meditationInventory(@RequestBody ExpenseRequest request){
+        return service.createMeditationInventory(request);
+    }
+
     // for create Salary details base on user table
     @PostMapping("/user/salary")
     public Integer createSalary(@RequestBody ExpenseUserSalaryRequest request){

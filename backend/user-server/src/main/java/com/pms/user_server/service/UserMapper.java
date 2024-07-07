@@ -7,6 +7,7 @@ import com.pms.user_server.dto.client.ExpenseUserSalaryRequest;
 import com.pms.user_server.dto.client.ToUserDetails;
 import com.pms.user_server.dto.client.ToUserSalary;
 import com.pms.user_server.dto.ui.UserUpadeRequest;
+import com.pms.user_server.dto.ui.users.ManagerVetDetails;
 import com.pms.user_server.dto.ui.users.UserUiResponse;
 import com.pms.user_server.exceptions.UserServiceException;
 import com.pms.user_server.model.User;
@@ -148,5 +149,14 @@ public class UserMapper {
         user.setPhone(userRequest.phone());
         user.setRole(userRequest.role());
         return user;
+    }
+
+    public ManagerVetDetails fromManagerVet(User user) {
+        String name = user.getFirst_name() + " " + user.getLast_name();
+        return new ManagerVetDetails(
+                name,
+                user.getEmail(),
+                user.getPhone()
+        );
     }
 }

@@ -9,6 +9,7 @@ import com.pms.user_server.dto.UserSalaryRequest;
 import com.pms.user_server.dto.client.ToUserDetails;
 import com.pms.user_server.dto.client.ToUserSalary;
 import com.pms.user_server.dto.ui.UserUpadeRequest;
+import com.pms.user_server.dto.ui.users.ManagerVetDetails;
 import com.pms.user_server.dto.ui.users.UserUiResponse;
 import com.pms.user_server.exceptions.UserServiceException;
 import com.pms.user_server.repository.ManagerRepository;
@@ -178,5 +179,60 @@ public class UserService {
         }
         var updatedUser = userRepository.save(mapper.updateUser(userRequest, userRepository, isNewMailAlreadyExist));
         return ("Successfully updated User::" + updatedUser.getUser_id());
+    }
+
+    /**
+     *  |*| ==> get manager details for ui
+     *  |1| get manger id by using farm id  in manager table
+     *  |2| the get user details by using manager id
+     *
+     * @param farmId
+     * @return farm related manager Details
+     *  -   Name , email and phone number
+     */
+    public ManagerVetDetails getManagerDetails(Integer farmId) {
+        var manager = managerRepository.findById(farmId);
+        return userRepository.findById(manager.get().getUser_id())
+                .map(mapper::fromManagerVet)
+                .orElseThrow(
+                        () -> new UserServiceException("Manager not fond with Farm ID::" + farmId)
+                );
+    }
+
+    // get all manager details
+    public List<ManagerVetDetails> getAllManagers() {
+        return userRepository.findAllManagers()
+                .stream()
+                .map(mapper::fromManagerVet)
+                .collect(Collectors.toList());
+
+    }
+
+
+    /**
+     *  |*| ==> get vet details for ui
+     *  |1| get vet id by using farm id  in vet table
+     *  |2| the get user details by using manager id
+     *
+     * @param farmId
+     * @return farm related vet Details
+     *  -   Name , email and phone number
+     */
+    public ManagerVetDetails getVetDetails(Integer farmId) {
+        var vet = managerRepository.findById(farmId);
+        return userRepository.findById(vet.get().getUser_id())
+                .map(mapper::fromManagerVet)
+                .orElseThrow(
+                        () -> new UserServiceException("Vet not fond with Farm ID::" + farmId)
+                );
+    }
+
+    // get all manager details
+    public List<ManagerVetDetails> getAllVets() {
+        return userRepository.findAllVets()
+                .stream()
+                .map(mapper::fromManagerVet)
+                .collect(Collectors.toList());
+
     }
 }
