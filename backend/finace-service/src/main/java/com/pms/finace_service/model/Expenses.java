@@ -26,4 +26,6 @@ public class Expenses {
     private BigDecimal expense_value;
     private String description;
     private String farm_code;
+    @Enumerated(EnumType.STRING)
+    private Expense expense_type;
 }

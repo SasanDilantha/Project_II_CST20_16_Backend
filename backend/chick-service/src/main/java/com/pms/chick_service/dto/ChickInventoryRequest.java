@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 public record ChickInventoryRequest(
         Integer chick_inventory_id,
-        Integer chick_breed_id,
+        Integer chick_storage_id,
         Breed breed,
         Integer chick_quantity,
         Integer age,

@@ -1,13 +1,15 @@
 package com.pms.chick_service.services;
 
 import com.pms.chick_service.dto.*;
+import com.pms.chick_service.dto.client.ToChickBlockDetails;
+import com.pms.chick_service.dto.ui.response.BlockDetails;
+import com.pms.chick_service.dto.ui.response.FarmUiResponse;
 import com.pms.chick_service.model.ChickBlock;
 import com.pms.chick_service.model.ChickInventory;
 import com.pms.chick_service.model.ChickInventryCost;
 import com.pms.chick_service.model.ChickStorage;
 import com.pms.chick_service.repository.ChickInventryCostRepository;
 import com.pms.chick_service.repository.ChickStorageRepository;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -44,8 +46,8 @@ public class ChickInventoryMapper {
     }
 
     public ChickBlock toBlock(BlockRequest request, Integer placementId, ChickStorageRepository storageRepository) {
-        ChickStorage storage = storageRepository.findById(request.breed_id()).orElseThrow(
-                ()-> new IllegalArgumentException("storage not found with id: " + request.breed_id())
+        ChickStorage storage = storageRepository.findById(request.storage_id()).orElseThrow(
+                ()-> new IllegalArgumentException("storage not found with id: " + request.storage_id())
         );
         return ChickBlock.builder()
                 .chick_block_id(request.block_id())
@@ -61,7 +63,7 @@ public class ChickInventoryMapper {
                 chickInventory.getChick_inventory_code(),
                 chickInventory.getAvailable_quantity(),
                 chickInventory.getExpense_id(),
-                chickInventory.getChickStorage().getChick_breed_id(),
+                chickInventory.getChickStorage().getChick_storage_id(),
                 chickInventory.getChickStorage().getBreed().toString(),
                 chickInventory.getChickStorage().getAge(),
                 chickInventory.getChickInventryCost().getPrice_per_chick(),
@@ -69,4 +71,35 @@ public class ChickInventoryMapper {
                 chickInventory.getChickInventryCost().getChickSupplier().getSupplier_phone()
         );
     }
+
+    public FarmUiResponse forFarmUi(ChickInventory chickInventory) {
+        return new FarmUiResponse(
+                chickInventory.getChick_inventory_id(),
+                chickInventory.getChickStorage().getChick_quantity(),
+                chickInventory.getAvailable_quantity(),
+                chickInventory.getChickStorage().getAge()
+        );
+    }
+
+    public BlockDetails toBlockDetails(ChickBlock chickBlock, String placementCode, ToChickBlockDetails mortality) {
+        //Integer mortality_count = (mortality.count() == null) ? 0 : mortality.count();
+        //String mortality_description = (mortality.description() == null) ? "" : mortality.description();
+        return new BlockDetails(
+                chickBlock.getPlacement_id(),
+                placementCode,
+                chickBlock.getBlock_quantity(),
+                mortality.count(),
+                mortality.description()
+        );
+    }
+
+    public ChickBlockTest test(ChickBlock chickBlock) {
+        return new ChickBlockTest(
+                chickBlock.getChick_block_id(),
+                chickBlock.getPlacement_id(),
+                chickBlock.getBlock_quantity(),
+                chickBlock.getChick_storage().getChick_storage_id()
+        );
+    }
+
 }

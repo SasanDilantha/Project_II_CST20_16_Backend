@@ -56,4 +56,8 @@ public class PlacementService {
                 .map(placementMapper::fromAllPlacement)
                 .collect(Collectors.toList());
     }
+
+    public String getPlacementCodeById(Integer placementId) {
+        return placementRepository.findCodeById(placementId);
+    }
 }

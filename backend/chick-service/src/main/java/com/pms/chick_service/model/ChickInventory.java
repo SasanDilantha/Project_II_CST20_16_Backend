@@ -18,7 +18,7 @@ public class ChickInventory {
     private Integer available_quantity;
     private Integer expense_id;
     @OneToOne
-    @JoinColumn(name = "chick_breed_id")
+    @JoinColumn(name = "chick_storage_id")
     private ChickStorage chickStorage;
     @OneToOne
     @JoinColumn(name = "chick_inventry_cost_id")

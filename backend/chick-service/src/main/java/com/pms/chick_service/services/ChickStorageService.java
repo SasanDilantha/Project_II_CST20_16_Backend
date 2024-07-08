@@ -15,6 +15,6 @@ public class ChickStorageService {
     // create record of chick inventory request ----> save data to storage
     public Integer createStorage(ChickInventoryRequest request){
         var storage = chickStorageRepository.save(mapper.toStorage(request));
-        return storage.getChick_breed_id();
+        return storage.getChick_storage_id();
     }
 }
