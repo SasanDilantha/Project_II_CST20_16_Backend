@@ -1,0 +1,33 @@
+server:
+  port: 8222
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: farm-service
+          uri: lb:http://FARM-SERVICE
+          predicates:
+            - Path=/api/farm/**
+        - id : user-server
+          uri: lb:http://USER-SERVER
+          predicates:
+            - Path=/api/user/**
+        - id : chick-service
+          uri: lb:http://CHICK-SERVICE
+          predicates:
+            - Path=/api/chick/**
+        - id : finace-service
+          uri: lb:http://FINACE-SERVICE
+          predicates:
+            - Path=/api/fin/**
+        - id : feed-service
+          uri: lb:http://FEED-SERVICE
+          predicates:
+            - Path=/api/feed/**
+        - id : medication-service
+          uri: lb:http://MEDICATION-SERVICE
+          predicates:
+            - Path=/api/med/**
