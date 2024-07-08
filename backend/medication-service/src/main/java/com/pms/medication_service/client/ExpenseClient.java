@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @FeignClient(
         name = "finace-service",
-        url = "http://localhost:8222/api/expenses"
+        url = "http://localhost:8222/api/fin/expenses"
 )
 public interface ExpenseClient {
     @PostMapping("/meditation_inventory")
