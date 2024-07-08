@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/farm_service
+    url: jdbc:mysql://localhost:3306/farm_service?createDatabaseIfNotExist=true
     username: root
     password: testUser
   jpa:
@@ -16,5 +16,10 @@ spring:
     baseline-version: 0
     user: ${spring.datasource.username}
     password: ${spring.datasource.password}
+    clean-disabled: false
+    locations: classpath:db/migration
+    table: flyway_schema_history
+    validate-on-migrate: true
+
 server:
   port: 8020

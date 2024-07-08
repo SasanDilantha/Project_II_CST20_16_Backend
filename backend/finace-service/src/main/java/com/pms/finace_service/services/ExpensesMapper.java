@@ -9,10 +9,36 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ExpensesMapper {
-    public Expenses toCheckInventry(ExpenseRequest request, String farm_code) {
+    public Expenses toCheckInventory(ExpenseRequest request, String farm_code) {
+        String type = "GET_CHICK";
         return Expenses.builder()
+                .expense_id(request.expense_id())
                 .expense_value(request.total_price())
+                .description(request.description())
                 .farm_code(farm_code)
+                .expense_type(Expense.valueOf(type))
+                .build();
+    }
+
+    public Expenses toFeedInventory(ExpenseRequest request, String farm_code) {
+        String type = "GET_CHICK";
+        return Expenses.builder()
+                .expense_id(request.expense_id())
+                .expense_value(request.total_price())
+                .description(request.description())
+                .farm_code(farm_code)
+                .expense_type(Expense.valueOf(type))
+                .build();
+    }
+
+    public Expenses toMeditationInventory(ExpenseRequest request, String farm_code) {
+        String type = "GET_CHICK";
+        return Expenses.builder()
+                .expense_id(request.expense_id())
+                .expense_value(request.total_price())
+                .description(request.description())
+                .farm_code(farm_code)
+                .expense_type(Expense.valueOf(type))
                 .build();
     }
 

@@ -9,4 +9,7 @@ import org.springframework.data.repository.query.Param;
 public interface PlacementRepository extends JpaRepository<Placement, Integer> {
     @Query("SELECT p.placement_id FROM Placement p WHERE p.placement_code = :placementCode")
     Integer findIdByCode(@Param("placementCode") String placementCode);
+
+    @Query("SELECT p.placement_code FROM Placement p WHERE p.placement_id = :placementId")
+    String findCodeById(@Param("placementId") Integer placementId);
 }

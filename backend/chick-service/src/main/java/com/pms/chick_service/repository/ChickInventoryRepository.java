@@ -21,4 +21,7 @@ public interface ChickInventoryRepository extends JpaRepository<ChickInventory, 
     @Modifying
     @Query("UPDATE ChickBlock cb SET cb.block_quantity = cb.block_quantity - :quantity WHERE cb.chick_storage.chick_storage_id = :chickBreedId AND cb.placement_id = :placementId")
     int updateBockQuantity(@Param("placementId") Integer placementId, @Param("quantity") Integer quantity ,@Param("chickBreedId") Integer chickBreedId);
+
+    @Query("SELECT ci.chickStorage.chick_storage_id FROM ChickInventory ci WHERE ci.chick_inventory_id = :id ")
+    Integer findStorageIdById(@Param("id") Integer chickInventoryId);
 }

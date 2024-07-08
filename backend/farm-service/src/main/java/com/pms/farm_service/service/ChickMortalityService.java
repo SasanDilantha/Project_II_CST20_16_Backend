@@ -2,6 +2,7 @@ package com.pms.farm_service.service;
 
 import com.pms.farm_service.clients.ChickClient;
 import com.pms.farm_service.dto.ChickMortalityRequest;
+import com.pms.farm_service.dto.ui.response.ToChickBlockDetails;
 import com.pms.farm_service.repository.ChickMortalityRepository;
 import com.pms.farm_service.repository.PlacementRepository;
 import lombok.RequiredArgsConstructor;
@@ -24,5 +25,10 @@ public class ChickMortalityService {
         // out put the updated a.q
         Integer updateInventory = this.chickClient.updateMortality(mapper.toInventory(mortality));
         return ("Successfully updated chicken mortality in Placement:: " + request.placement_code() + ", and New Available in Inventory:: " + updateInventory);
+    }
+
+    public ToChickBlockDetails getMortalityDetails(Integer placementId) {
+        var mortality = chickMortalityRepository.findByPlacementId(placementId);
+        return mapper.toChick(mortality);
     }
 }

@@ -15,12 +15,12 @@ public class FeedInventory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer feed_inventory_id;
     private String feed_inventory_code;
-    private Integer available_quantity;
+    private double available_quantity;
     private Integer expense_id;
     @OneToOne
     @JoinColumn(name = "feed_id")
     private FeedStorage feedStorage;
     @OneToOne
-    @JoinColumn(name = "feed_inventry_cost_id")
-    private FeedInevntoryCost feedInventryCost;
+    @JoinColumn(name = "feed_inventory_cost_id")
+    private FeedInventoryCost feedInventoryCost;
 }

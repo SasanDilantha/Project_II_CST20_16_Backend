@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/expenses")
+@RequestMapping("/api/fin/expenses")
 @RequiredArgsConstructor
 public class ExpensesController {
     private final ExpensesService service;
@@ -20,6 +20,18 @@ public class ExpensesController {
     @PostMapping("/chick_inventory")
     public Integer createChickInventory(@RequestBody ExpenseRequest request){
         return service.createChickInventory(request);
+    }
+
+    // for create feed inventory details
+    @PostMapping("/feed_inventory")
+    public Integer createFeedInventory(@RequestBody ExpenseRequest request){
+        return service.createFeedInventory(request);
+    }
+
+    // for create meditation inventory details
+    @PostMapping("/meditation_inventory")
+    public Integer meditationInventory(@RequestBody ExpenseRequest request){
+        return service.createMeditationInventory(request);
     }
 
     // for create Salary details base on user table

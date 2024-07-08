@@ -4,9 +4,8 @@ import com.pms.user_server.dto.UserLoginRequest;
 import com.pms.user_server.dto.UserRequest;
 import com.pms.user_server.dto.UserResponse;
 import com.pms.user_server.dto.UserSalaryRequest;
-import com.pms.user_server.dto.client.ToUserDetails;
-import com.pms.user_server.dto.client.ToUserSalary;
 import com.pms.user_server.dto.ui.UserUpadeRequest;
+import com.pms.user_server.dto.ui.users.ManagerVetDetails;
 import com.pms.user_server.dto.ui.users.UserUiResponse;
 import com.pms.user_server.service.UserService;
 import jakarta.validation.Valid;
@@ -52,6 +51,31 @@ public class UserController {
     public ResponseEntity<List<UserUiResponse> > getAllUsersForUI() {
         return ResponseEntity.ok(service.getAllUsersForUI());
     }
+
+    // get all managers
+    @GetMapping("/managers")
+    public ResponseEntity<List<ManagerVetDetails>> getAllManagers() {
+        return ResponseEntity.ok(service.getAllManagers());
+    }
+
+    // get manager details for UI
+    @GetMapping("/managers/{farm-id}")
+    public ResponseEntity<ManagerVetDetails> getManagerDetails(@PathVariable("farm-id") Integer farmId){
+        return  ResponseEntity.ok(service.getManagerDetails(farmId));
+    }
+
+    // get all vets
+    @GetMapping("/vets")
+    public ResponseEntity<List<ManagerVetDetails>> getAllVets() {
+        return ResponseEntity.ok(service.getAllVets());
+    }
+
+    // get manager details for UI
+    @GetMapping("/vets/{farm-id}")
+    public ResponseEntity<ManagerVetDetails> getVetDetails(@PathVariable("farm-id") Integer farmId){
+        return  ResponseEntity.ok(service.getVetDetails(farmId));
+    }
+
 
     // update user
     @PutMapping("/update/user/details")

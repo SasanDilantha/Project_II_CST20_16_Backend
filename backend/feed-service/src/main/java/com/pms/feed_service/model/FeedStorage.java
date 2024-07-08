@@ -22,7 +22,7 @@ public class FeedStorage {
     private Integer feed_id;
     @Enumerated(EnumType.STRING)
     private FeedType feed_type;
-    private Integer initial_feed_quantity;
+    private double initial_feed_quantity;
     @CreatedDate
     @Column(nullable = false, updatable = false)
     private LocalDateTime date;

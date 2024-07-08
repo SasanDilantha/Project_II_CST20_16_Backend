@@ -51,6 +51,7 @@ public class FarmMapper {
                             farmResponse.farm_id(),
                             farmResponse.farm_name(),
                             farmResponse.farm_location(),
+                            fromChick.inventory_id(),
                             fromChick.inventory_count(),
                             fromChick.available_inventory_count(),
                             fromChick.chick_age()

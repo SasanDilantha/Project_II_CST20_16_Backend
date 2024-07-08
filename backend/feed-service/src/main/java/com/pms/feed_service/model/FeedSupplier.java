@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "chick_supplier")
+@Table(name = "feed_supplier")
 public class FeedSupplier {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,5 +21,5 @@ public class FeedSupplier {
     private String supplier_email;
     private String supplier_address;
     @OneToMany(mappedBy = "feedSupplier", cascade = CascadeType.ALL)
-    private List<FeedInevntoryCost> feed_inventry_costs;
+    private List<FeedInventoryCost> feed_inventry_costs;
 }

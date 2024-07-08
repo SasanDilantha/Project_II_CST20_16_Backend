@@ -15,7 +15,7 @@ public class FeedBlock {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer feed_block_id;
     private Integer placement_id;
-    private Integer block_quantity;
+    private double block_quantity;
     @ManyToOne
     @JoinColumn(name = "feed_id")
     private FeedStorage feed_storage;

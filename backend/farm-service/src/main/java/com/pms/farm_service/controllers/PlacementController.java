@@ -36,4 +36,10 @@ public class PlacementController {
     public Integer findPlacementIdByCode(@PathVariable("placementCode") String placementCode){
         return service.getPlacementIdByPlacementCode(placementCode);
     }
+
+    // get placement code by using id
+    @GetMapping("/id/{placement-id}")
+    public String findPlacementCodeById(@PathVariable("placement-id") Integer placementId){
+        return service.getPlacementCodeById(placementId);
+    }
 }
