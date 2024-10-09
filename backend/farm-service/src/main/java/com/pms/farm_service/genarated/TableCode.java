@@ -35,11 +35,14 @@ public class TableCode {
         return createCode(farmRequestCodes.stream().toList(),stringPart, "PLACE");
     }
 
-    private String createCode(List<RequestCode> list, String stringPart, String tabl) {
-        Random random = new Random();
-        int max = 10000, min = 0;
-        int numericPart = random.nextInt(max - min) + min;
+    // create record code
+    public String createReportCode(){
+        int numericPart = this.getRanNum();
+        return ("REC-"+numericPart);
+    }
 
+    private String createCode(List<RequestCode> list, String stringPart, String tabl) {
+        int numericPart = this.getRanNum();
         // farmcode
         String farmCode = stringPart.toUpperCase() +"-" + numericPart;
 
@@ -53,6 +56,12 @@ public class TableCode {
             }
         }
         return finalCode;
+    }
+
+    private int getRanNum(){
+        Random random = new Random();
+        int max = 10000, min = 0;
+        return (random.nextInt(max - min) + min);
     }
 
 }

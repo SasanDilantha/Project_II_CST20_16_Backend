@@ -4,6 +4,7 @@ import com.pms.farm_service.dto.FarmRequest;
 import com.pms.farm_service.dto.FarmResponse;
 import com.pms.farm_service.dto.ToUserDetails;
 import com.pms.farm_service.dto.ui.response.FarmDetailsUiResponse;
+import com.pms.farm_service.genarated.TableCode;
 import com.pms.farm_service.service.FarmService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +18,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class FarmController {
     private final FarmService service;
+    private final TableCode code;
 
     // insert farm details
     @PostMapping
@@ -52,5 +54,10 @@ public class FarmController {
     @GetMapping("/user/details")
     public List<ToUserDetails> getFarmNameAndCodeWithId(){
         return service.getFarmNameAndCodeWithId();
+    }
+
+    @GetMapping("/gen/report/code")
+    public String gentReportCode(){
+        return code.createReportCode();
     }
 }

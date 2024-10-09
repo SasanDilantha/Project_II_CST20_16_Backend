@@ -1,9 +1,7 @@
 package com.pms.chick_service.controllers;
 
-import com.pms.chick_service.dto.BlockRequest;
-import com.pms.chick_service.dto.ChickInventoryRequest;
-import com.pms.chick_service.dto.InvetoryResponse;
-import com.pms.chick_service.dto.MortalityRequest;
+import com.pms.chick_service.dto.*;
+import com.pms.chick_service.dto.client.FromChickMortality;
 import com.pms.chick_service.dto.client.ToChickBlockDetails;
 import com.pms.chick_service.dto.ui.response.BlockDetails;
 import com.pms.chick_service.dto.ui.response.FarmUiResponse;
@@ -11,10 +9,12 @@ import com.pms.chick_service.model.ChickBlock;
 import com.pms.chick_service.model.ChickStorage;
 import com.pms.chick_service.services.ChickBlockTest;
 import com.pms.chick_service.services.ChickInventoryService;
+import com.pms.chick_service.services.ChickStorageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -22,6 +22,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ChickInventoryController {
     private final ChickInventoryService service;
+    private final ChickStorageService storageService;
 
     @PostMapping
     public ResponseEntity<String> createChickInventory(@RequestBody ChickInventoryRequest request) {
@@ -54,6 +55,26 @@ public class ChickInventoryController {
     @PostMapping("/create/block")
     public ResponseEntity<String> createBlock(@RequestBody BlockRequest request) {
         return ResponseEntity.ok(service.createBlock(request));
+    }
+
+    @GetMapping("/init/date/{placement-id}")
+    public LocalDateTime getChickStorageById(@PathVariable("placement-id") Integer placementId){
+        return storageService.getChickStorageInitById(placementId);
+    }
+
+    @GetMapping("/mortality/data/{placement-id}")
+    public FromChickMortality getMortalityDetailsById(@PathVariable("placement-id") Integer placementId){
+        return storageService.getMortalityDetails(placementId);
+    }
+
+    @GetMapping("/init/weight/{placement-id}")
+    public Float getInitWeight(@PathVariable("placement-id") Integer placementId){
+        return storageService.testChickStorageService(placementId);
+    }
+
+    @GetMapping("/get/inventory/{placement-id}")
+    public Integer getInventoryIdByPlacementId(@PathVariable("placement-id") Integer placementId){
+        return service.getInventoryIdByPlacementId(placementId);
     }
 
 }

@@ -3,6 +3,7 @@ package com.pms.chick_service.services;
 import com.pms.chick_service.client.ExpenseClient;
 import com.pms.chick_service.client.FarmClient;
 import com.pms.chick_service.dto.*;
+import com.pms.chick_service.dto.client.FromChickMortality;
 import com.pms.chick_service.dto.client.ToChickBlockDetails;
 import com.pms.chick_service.dto.ui.response.BlockDetails;
 import com.pms.chick_service.dto.ui.response.FarmUiResponse;
@@ -161,5 +162,9 @@ public class ChickInventoryService {
         return response;
     }
 
+    // Send the Inventory id to the monitoring service
+    public Integer getInventoryIdByPlacementId(Integer placementId) {
+        return chickInventoryRepository.findLatestChickInventoryIdByPlacementId(placementId);
+    }
 
 }
