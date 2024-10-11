@@ -31,3 +31,7 @@ spring:
           uri: lb:http://MEDICATION-SERVICE
           predicates:
             - Path=/api/med/**
+        - id: monitoring-service
+          uri: lb:http://MONITORING-SERVICE
+          predicates:
+            - Path=/api/moni/**

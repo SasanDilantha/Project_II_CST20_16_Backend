@@ -24,4 +24,11 @@ public interface ChickInventoryRepository extends JpaRepository<ChickInventory, 
 
     @Query("SELECT ci.chickStorage.chick_storage_id FROM ChickInventory ci WHERE ci.chick_inventory_id = :id ")
     Integer findStorageIdById(@Param("id") Integer chickInventoryId);
+
+    @Query("SELECT ci.chick_inventory_id FROM ChickInventory ci " +
+            "JOIN ci.chickStorage cs " +
+            "JOIN cs.chickBlocks cb " +
+            "WHERE cb.placement_id = :placementId " +
+            "ORDER BY ci.chick_inventory_id DESC LIMIT 1")
+    Integer findLatestChickInventoryIdByPlacementId(@Param("placementId") Integer placementId);
 }

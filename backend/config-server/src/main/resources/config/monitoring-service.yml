@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/monitoring_service?createDatabaseIfNotExist=true
+    username: root
+    password: testUser
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: mysql
+flask:
+  service:
+    url: http://127.0.0.1:5000
+server:
+  port: 8080
