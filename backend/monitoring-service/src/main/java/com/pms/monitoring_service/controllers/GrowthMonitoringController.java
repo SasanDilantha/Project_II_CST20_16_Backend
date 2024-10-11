@@ -1,6 +1,7 @@
 package com.pms.monitoring_service.controllers;
 
 import com.pms.monitoring_service.dto.MonitoringResponse;
+import com.pms.monitoring_service.dto.SensorData;
 import com.pms.monitoring_service.services.MonitoringService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/moni")
@@ -25,5 +27,10 @@ public class GrowthMonitoringController {
     @GetMapping("/get/all/data/{placement-id}")
     public ResponseEntity<MonitoringResponse> getLatestGrowthMonitoringRecord(@PathVariable("placement-id") Integer placementId){
         return ResponseEntity.ok(monitoringService.getLatestGrowthMonitoringRecord(placementId));
+    }
+
+    @GetMapping("/get/iot/data")
+    public ResponseEntity<List<SensorData>> getSensorData() {
+        return ResponseEntity.ok(monitoringService.getSensorData());
     }
 }

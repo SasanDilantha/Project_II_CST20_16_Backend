@@ -2,6 +2,7 @@ package com.pms.monitoring_service.services;
 
 import com.pms.monitoring_service.clients.ChickClient;
 import com.pms.monitoring_service.dto.MonitoringResponse;
+import com.pms.monitoring_service.dto.SensorData;
 import com.pms.monitoring_service.model.GrowthMonitoring;
 import com.pms.monitoring_service.model.WeightRecord;
 import com.pms.monitoring_service.repository.GrowthMonitoringRepository;
@@ -24,6 +25,7 @@ public class MonitoringService {
     private final GrowthMonitoringRepository growthMonitoringRepository;
     private final MethodInMonitoring methode;
 
+    private final IoTSensorDataService ioTSensorDataService;
     private final ChickClient chickClient;
 
     public LocalDateTime getChickStorageById(Integer placementId) {
@@ -106,6 +108,11 @@ public class MonitoringService {
                 predictedWeightBasedOnFeedInFlock,
                 predictedWeightBasedOnADGPerBird
         );
+    }
+
+    // Method to retrieve sensor data
+    public List<SensorData> getSensorData() {
+        return ioTSensorDataService.getSensorData();
     }
 
 
