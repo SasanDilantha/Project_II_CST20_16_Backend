@@ -1,5 +1,6 @@
 package com.pms.medication_service.model;
 
+import com.pms.medication_service.model.prescription.RecommendMedication;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
@@ -31,4 +32,7 @@ public class MedicationStorage {
     private MedicationInventory medicationInventory;
     @OneToMany(mappedBy = "medication_storage", cascade = CascadeType.ALL)
     private List<MedicationBlock> medicationBlocks;
+    // Added relationship with RecommendMedication
+    @OneToMany(mappedBy = "medicationStorage", cascade = CascadeType.ALL)
+    private List<RecommendMedication> recommendedMedications;
 }
