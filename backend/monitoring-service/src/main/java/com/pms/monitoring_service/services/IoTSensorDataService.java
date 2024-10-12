@@ -36,8 +36,6 @@ public class IoTSensorDataService {
                     new ParameterizedTypeReference<List<SensorData>>() {}
             );
 
-            //return response.getBody();
-
             // Check if response is successful
             if (response.getStatusCode().is2xxSuccessful()) {
                 return response.getBody();  // Return the list of sensor data

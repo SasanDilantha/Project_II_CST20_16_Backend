@@ -4,7 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95f5d2df-14a0-4c09-9de8-00ac5f25782c" name="Changes" comment="" />
+    <list default="true" id="95f5d2df-14a0-4c09-9de8-00ac5f25782c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/monitoring-service/src/main/java/com/pms/monitoring_service/config/KafkaMonitoringTopic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/monitoring-service/src/main/java/com/pms/monitoring_service/kafka/MonitoringNotifications.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/monitoring-service/src/main/java/com/pms/monitoring_service/kafka/NotificationProducer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/pms/notification_service/config/WebSocketConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/pms/notification_service/kafka/DataMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/pms/notification_service/kafka/Monitoring.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/pms/notification_service/kafka/MonitoringDTO/MonitoringNotifications.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/pms/notification_service/kafka/MonitoringDTO/MonitoringResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/pms/notification_service/kafka/MonitoringDTO/SensorData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/pms/notification_service/model/Notification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/pms/notification_service/repository/NotificationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/target/test-classes/com/pms/api_gateway/ApiGatewayApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/target/test-classes/com/pms/api_gateway/ApiGatewayApplicationTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/config/gateway-service.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/config/gateway-service.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/config/monitoring-service.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/config/monitoring-service.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/config/notification-service.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/config/notification-service.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monitoring-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/monitoring-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monitoring-service/src/main/java/com/pms/monitoring_service/controllers/GrowthMonitoringController.java" beforeDir="false" afterPath="$PROJECT_DIR$/monitoring-service/src/main/java/com/pms/monitoring_service/controllers/GrowthMonitoringController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monitoring-service/src/main/java/com/pms/monitoring_service/services/IoTSensorDataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/monitoring-service/src/main/java/com/pms/monitoring_service/services/IoTSensorDataService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monitoring-service/src/main/java/com/pms/monitoring_service/services/MonitoringService.java" beforeDir="false" afterPath="$PROJECT_DIR$/monitoring-service/src/main/java/com/pms/monitoring_service/services/MonitoringService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/pom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,9 +40,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="Record" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="Record" />
       </list>
     </option>
   </component>
@@ -46,62 +72,75 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.ApiGatewayApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;Spring Boot.ChickServiceApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;Spring Boot.ConfigServertApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;Spring Boot.DiscoveryServerApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;Spring Boot.FarmServiceApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;Spring Boot.FinaceServiceApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;Spring Boot.MonitoringServiceApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;Spring Boot.UserServerApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;#16 on dev-sasa&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/media/sasan/Common/Project_II/Project_II_CST20_16/backend/farm-service/src/main/java/com/pms/farm_service&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reactor&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Maven.api-gateway [clean,install].executor": "Run",
+    "Maven.api-gateway [clean].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.ApiGatewayApplication.executor": "Debug",
+    "Spring Boot.BaseApplication.executor": "Debug",
+    "Spring Boot.ChickServiceApplication.executor": "Debug",
+    "Spring Boot.ConfigServertApplication.executor": "Debug",
+    "Spring Boot.DiscoveryServerApplication.executor": "Debug",
+    "Spring Boot.FarmServiceApplication.executor": "Debug",
+    "Spring Boot.FinaceServiceApplication.executor": "Debug",
+    "Spring Boot.MonitoringServiceApplication.executor": "Debug",
+    "Spring Boot.NotificationServiceApplication.executor": "Debug",
+    "Spring Boot.UserServerApplication.executor": "Debug",
+    "git-widget-placeholder": "dev-sasa",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/media/sasan/Common/Project_II/Project_II_CST20_16/backend/base/src/main/java/com/pms/base",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "/media/sasan/Common/Project_II/Project_II_CST20_16/backend/base/src/main/java/com/oms/Main.java",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.pms.notification_service.kafka" />
       <recent name="com.pms.farm_service.dto" />
       <recent name="com.pms.chick_service.dto" />
       <recent name="com.pms.farm_service.service" />
       <recent name="com.pms.chick_service.services" />
-      <recent name="com.pms.finace_service.services" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/base/src/main/java/com/pms/base" />
       <recent name="$PROJECT_DIR$/farm-service/src/main/java/com/pms/farm_service" />
       <recent name="$PROJECT_DIR$/finace-service/src/main/java/com/pms/finace_service" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.pms.monitoring_service.kafka" />
+      <recent name="com.pms.notification_service.kafka.MonitoringDTO" />
       <recent name="com.pms.farm_service.dto" />
       <recent name="com.pms.chick_service.client" />
       <recent name="com.pms.finace_service.clients" />
-      <recent name="com.pms.finace_service.dto" />
-      <recent name="com.pms.finace_service.model" />
     </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean" />
+      <command value="mvn clean install" />
+    </option>
   </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
@@ -191,10 +230,9 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Spring Boot.ApiGatewayApplication" />
-      <item itemvalue="Spring Boot.ChickServiceApplication" />
       <item itemvalue="Spring Boot.ConfigServertApplication" />
       <item itemvalue="Spring Boot.DiscoveryServerApplication" />
+      <item itemvalue="Spring Boot.ChickServiceApplication" />
       <item itemvalue="Spring Boot.FarmServiceApplication" />
       <item itemvalue="Spring Boot.FeedServiceApplication" />
       <item itemvalue="Spring Boot.FinaceServiceApplication" />
@@ -202,6 +240,7 @@
       <item itemvalue="Spring Boot.MonitoringServiceApplication" />
       <item itemvalue="Spring Boot.NotificationServiceApplication" />
       <item itemvalue="Spring Boot.UserServerApplication" />
+      <item itemvalue="Spring Boot.ApiGatewayApplication" />
     </list>
   </component>
   <component name="SharedIndexes">
@@ -250,6 +289,12 @@
       <workItem from="1728463697831" duration="1562000" />
       <workItem from="1728616501173" duration="7827000" />
       <workItem from="1728626003211" duration="18000" />
+      <workItem from="1728628664877" duration="1162000" />
+      <workItem from="1728634100079" duration="9226000" />
+      <workItem from="1728651884093" duration="1458000" />
+      <workItem from="1728660295175" duration="5784000" />
+      <workItem from="1728666471616" duration="4432000" />
+      <workItem from="1728671046168" duration="2969000" />
     </task>
     <servers />
   </component>
@@ -258,6 +303,17 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/base/src/main/java/com/pms/Main.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

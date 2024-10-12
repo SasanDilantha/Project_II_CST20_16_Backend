@@ -2,13 +2,12 @@ package com.pms.monitoring_service.controllers;
 
 import com.pms.monitoring_service.dto.MonitoringResponse;
 import com.pms.monitoring_service.dto.SensorData;
+
+import com.pms.monitoring_service.kafka.MonitoringNotifications;
 import com.pms.monitoring_service.services.MonitoringService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -32,5 +31,11 @@ public class GrowthMonitoringController {
     @GetMapping("/get/iot/data")
     public ResponseEntity<List<SensorData>> getSensorData() {
         return ResponseEntity.ok(monitoringService.getSensorData());
+    }
+
+    @PostMapping("/notify/test")
+    public ResponseEntity<String> testNotify(@RequestBody MonitoringNotifications request) {
+        monitoringService.testNotify(request);
+        return ResponseEntity.ok("Test Notification sent successfully");
     }
 }

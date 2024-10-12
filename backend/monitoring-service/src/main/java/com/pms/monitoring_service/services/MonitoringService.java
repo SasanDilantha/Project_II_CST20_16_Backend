@@ -1,8 +1,13 @@
 package com.pms.monitoring_service.services;
 
+
 import com.pms.monitoring_service.clients.ChickClient;
+
 import com.pms.monitoring_service.dto.MonitoringResponse;
 import com.pms.monitoring_service.dto.SensorData;
+
+import com.pms.monitoring_service.kafka.MonitoringNotifications;
+import com.pms.monitoring_service.kafka.NotificationProducer;
 import com.pms.monitoring_service.model.GrowthMonitoring;
 import com.pms.monitoring_service.model.WeightRecord;
 import com.pms.monitoring_service.repository.GrowthMonitoringRepository;
@@ -27,10 +32,16 @@ public class MonitoringService {
 
     private final IoTSensorDataService ioTSensorDataService;
     private final ChickClient chickClient;
+    private final NotificationProducer notificationProducer;
 
     public LocalDateTime getChickStorageById(Integer placementId) {
         LocalDateTime initDate = chickClient.getChickStorageById(placementId);
         return (initDate != null) ? initDate : LocalDateTime.now();
+    }
+
+    public void testNotify(MonitoringNotifications request) {
+        System.out.println("Sending test notification: service" );
+        notificationProducer.sendNotification(request);
     }
 
     // Runs every 3 days
@@ -64,6 +75,19 @@ public class MonitoringService {
 
                 // Save the new GrowthMonitoring record
                 growthMonitoringRepository.save(newGrowthMonitoring);
+
+                // Send a notification least 3 days chick summery record
+                String notificationType = "Growth-Monitoring";
+                MonitoringResponse monitoringResponse = getLatestGrowthMonitoringRecord(placementId);
+                notificationProducer.sendNotification(
+                        new MonitoringNotifications(
+                                notificationType,
+                                null,
+                                monitoringResponse,
+                                null,
+                                "all"
+                        )
+                );
             }
         }
     }

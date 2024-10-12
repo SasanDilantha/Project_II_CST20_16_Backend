@@ -8,6 +8,11 @@ spring:
     hibernate:
       ddl-auto: update
     database: mysql
+  kafka:
+    producer:
+      bootstrap-servers: 127.0.0.1:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 flask:
   service:
     url: http://127.0.0.1:5000

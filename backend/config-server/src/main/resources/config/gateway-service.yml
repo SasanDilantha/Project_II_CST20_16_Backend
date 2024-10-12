@@ -35,3 +35,7 @@ spring:
           uri: lb:http://MONITORING-SERVICE
           predicates:
             - Path=/api/moni/**
+        - id: notification-service
+          uri: lb:http://NOTIFICATION-SERVICE
+          predicates:
+            - Path=/api/notify/**
