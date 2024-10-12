@@ -1,4 +1,9 @@
 spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://127.0.0.1:7070/realms/PoultryFarmSystem # Keycloak Realm URL
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/farm_service?createDatabaseIfNotExist=true
@@ -6,20 +11,20 @@ spring:
     password: testUser
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
     database: mysql
     database-platform: org.hibernate.dialect.MySQL8Dialect
-  flyway:
-    baseline-on-migrate: true
-    enabled: true
-    baseline-description: "init"
-    baseline-version: 0
-    user: ${spring.datasource.username}
-    password: ${spring.datasource.password}
-    clean-disabled: false
-    locations: classpath:db/migration
-    table: flyway_schema_history
-    validate-on-migrate: true
+#  flyway:
+#    baseline-on-migrate: true
+#    enabled: true
+#    baseline-description: "init"
+#    baseline-version: 0
+#    user: ${spring.datasource.username}
+#    password: ${spring.datasource.password}
+#    clean-disabled: false
+#    locations: classpath:db/migration
+#    table: flyway_schema_history
+#    validate-on-migrate: true
 
 server:
   port: 8020

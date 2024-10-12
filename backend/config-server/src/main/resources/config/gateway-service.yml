@@ -1,6 +1,11 @@
 server:
   port: 8222
 spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://127.0.0.1:7070/realms/PoultryFarmSystem # Keycloak Realm URL
   cloud:
     gateway:
       discovery:
@@ -11,31 +16,58 @@ spring:
           uri: lb:http://FARM-SERVICE
           predicates:
             - Path=/api/farm/**
+          filters:
+            - StripPrefix=1
+            - name: TokenRelay  # Pass the JWT token downstream
         - id : user-server
           uri: lb:http://USER-SERVER
           predicates:
             - Path=/api/user/**
+          filters:
+            - StripPrefix=1
+            - name: TokenRelay
         - id : chick-service
           uri: lb:http://CHICK-SERVICE
           predicates:
             - Path=/api/chick/**
+          filters:
+            - StripPrefix=1
+            - name: TokenRelay
         - id : finace-service
           uri: lb:http://FINACE-SERVICE
           predicates:
             - Path=/api/fin/**
+          filters:
+            - StripPrefix=1
+            - name: TokenRelay
         - id : feed-service
           uri: lb:http://FEED-SERVICE
           predicates:
             - Path=/api/feed/**
+          filters:
+            - StripPrefix=1
+            - name: TokenRelay
         - id : medication-service
           uri: lb:http://MEDICATION-SERVICE
           predicates:
             - Path=/api/med/**
+          filters:
+            - StripPrefix=1
+            - name: TokenRelay
         - id: monitoring-service
           uri: lb:http://MONITORING-SERVICE
           predicates:
             - Path=/api/moni/**
+          filters:
+            - StripPrefix=1
+            - name: TokenRelay
         - id: notification-service
           uri: lb:http://NOTIFICATION-SERVICE
           predicates:
             - Path=/api/notify/**
+          filters:
+            - StripPrefix=1
+            - name: TokenRelay
+jwt:
+  keycloak:
+    issuer-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}
