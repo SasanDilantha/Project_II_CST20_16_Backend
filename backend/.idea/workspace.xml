@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ed6f13aa-f4c8-4daa-8ab6-9fffa496fc86" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/FeedServiceApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/FeedServiceApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/client/ExpenseClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/client/ExpenseClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/client/FarmClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/client/FarmClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/controllers/FeedController.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/controllers/FeedController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/controllers/FeedSupplierController.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/controllers/FeedSupplierController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/dto/BlockDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/dto/BlockDetails.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/dto/BlockRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/dto/BlockRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/dto/FarmUiResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/dto/FarmUiResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/dto/FeedInventoryRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/dto/FeedInventoryRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/dto/FeedSupplierRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/dto/FeedSupplierRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/dto/FeedSupplierResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/dto/FeedSupplierResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/dto/InventoryCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/dto/InventoryCode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/dto/InventoryResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/dto/InventoryResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/dto/client/ExpenseRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/dto/client/ExpenseRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/model/FeedBlock$FeedBlockBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/model/FeedBlock$FeedBlockBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/model/FeedBlock.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/model/FeedBlock.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/model/FeedInventory$FeedInventoryBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/model/FeedInventory$FeedInventoryBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/model/FeedInventory.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/model/FeedInventory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/model/FeedInventoryCost$FeedInventoryCostBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/model/FeedInventoryCost$FeedInventoryCostBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/model/FeedInventoryCost.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/model/FeedInventoryCost.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/model/FeedStorage$FeedStorageBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/model/FeedStorage$FeedStorageBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/model/FeedStorage.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/model/FeedStorage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/model/FeedSupplier$FeedSupplierBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/model/FeedSupplier$FeedSupplierBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/model/FeedSupplier.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/model/FeedSupplier.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/model/FeedType.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/model/FeedType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/repository/FeedBockRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/repository/FeedBockRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/repository/FeedInventoryCostRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/repository/FeedInventoryCostRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/repository/FeedInventoryRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/repository/FeedInventoryRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/repository/FeedStorageRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/repository/FeedStorageRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/repository/FeedSupplierRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/repository/FeedSupplierRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/services/CostMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/services/CostMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/services/FeedInventoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/services/FeedInventoryService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/services/FeedMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/services/FeedMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/services/FeedSupplierService.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/services/FeedSupplierService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/services/InventoryCostService.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/services/InventoryCostService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/services/InventoryMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/services/InventoryMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/services/StorageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/services/StorageService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/services/SupplierMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/target/classes/com/pms/feed_service/services/SupplierMapper.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2nNnnwUc8v8Z5d7gUbDsuH5fJtn" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.ConfigServertApplication.executor": "Debug",
+    "Spring Boot.DiscoveryServerApplication.executor": "Debug",
+    "Spring Boot.FeedServiceApplication.executor": "Debug",
+    "Spring Boot.NotificationServiceApplication.executor": "Debug",
+    "git-widget-placeholder": "dev-sasa",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "reactor",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.MonitoringServiceApplication">
+    <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="api-gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.pms.api_gateway.ApiGatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ChickServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="chick-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.pms.chick_service.ChickServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConfigServertApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="config-server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.pms.config_server.ConfigServertApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DiscoveryServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="discovery-server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.pms.discovery_server.DiscoveryServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FarmServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="farm-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.pms.farm_service.FarmServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FeedServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="feed-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.pms.feed_service.FeedServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FinaceServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="finance-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.pms.finace_service.FinaceServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MedicationServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="medication-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.pms.medication_service.MedicationServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MonitoringServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="monitoring-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.pms.monitoring_service.MonitoringServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NotificationServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="notification-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.pms.notification_service.NotificationServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="user-server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.pms.user_server.UserServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.19072.14" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.19072.14" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ed6f13aa-f4c8-4daa-8ab6-9fffa496fc86" name="Changes" comment="" />
+      <created>1728822573517</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1728822573517</updated>
+      <workItem from="1728822575426" duration="393000" />
+      <workItem from="1728823422486" duration="4105000" />
+      <workItem from="1728843040582" duration="138000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:org.springframework.security:spring-security-core" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-core" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.kafka:kafka_2.13" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.validation:jakarta.validation-api" />
+    <option featureType="dependencySupport" implementationName="java:io.projectreactor:reactor-core" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.data:spring-data-commons" />
+    <option featureType="dependencySupport" implementationName="executable:kubectl" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.cloud:spring-cloud-context" />
+    <option featureType="dependencySupport" implementationName="java:org.hibernate.validator:hibernate-validator" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-webmvc" />
+    <option featureType="dependencySupport" implementationName="java:org.projectlombok:lombok" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-websocket" />
+    <option featureType="dependencySupport" implementationName="executable:docker" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.ws.rs:jakarta.ws.rs-api" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-messaging" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
