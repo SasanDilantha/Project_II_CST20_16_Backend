@@ -15,7 +15,8 @@ import java.util.List;
 
 @FeignClient(
         name = "finace-service",
-        url = "http://localhost:8222/api/fin/expenses"
+        url = "http://localhost:8222/api/fin/expenses",
+        configuration = FeignConfig.class   // Ensure FeignConfig is used here
 )
 public interface FinanceClient {
     @PostMapping("/user/salary")

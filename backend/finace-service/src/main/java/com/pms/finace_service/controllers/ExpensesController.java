@@ -16,6 +16,11 @@ import java.util.List;
 public class ExpensesController {
     private final ExpensesService service;
 
+    @GetMapping("/")
+    public ResponseEntity<String> testPath(){
+        return ResponseEntity.ok("<h1>Expense Service<h1>");
+    }
+
     // for create chick inventory details
     @PostMapping("/chick_inventory")
     public Integer createChickInventory(@RequestBody ExpenseRequest request){

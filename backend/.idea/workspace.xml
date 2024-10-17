@@ -5,13 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="95f5d2df-14a0-4c09-9de8-00ac5f25782c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/chick-service/src/main/java/com/pms/chick_service/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/farm-service/src/main/java/com/pms/farm_service/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feed-service/src/main/java/com/pms/feed_service/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/finace-service/src/main/java/com/pms/finace_service/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medication-service/src/main/java/com/pms/medication_service/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/monitoring-service/src/main/java/com/pms/monitoring_service/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/pms/notification_service/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-server/src/main/java/com/pms/user_server/clients/FeignClientInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-server/src/main/java/com/pms/user_server/clients/FeignConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-server/src/main/java/com/pms/user_server/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chick-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/chick-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/config/finace-service.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/config/finace-service.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/config/gateway-service.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/config/gateway-service.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/config/user-server.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/config/user-server.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/farm-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/farm-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feed-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/feed-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finace-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/finace-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/farm-service/target/classes/com/pms/farm_service/dto/ToUserDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/farm-service/target/classes/com/pms/farm_service/dto/ToUserDetails.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/farm-service/target/classes/com/pms/farm_service/dto/ui/clients/FarmUiResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/farm-service/target/classes/com/pms/farm_service/dto/ui/clients/FarmUiResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/farm-service/target/classes/com/pms/farm_service/dto/ui/response/FarmDetailsUiResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/farm-service/target/classes/com/pms/farm_service/dto/ui/response/FarmDetailsUiResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/farm-service/target/classes/com/pms/farm_service/dto/ui/response/ToChickBlockDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/farm-service/target/classes/com/pms/farm_service/dto/ui/response/ToChickBlockDetails.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finace-service/src/main/java/com/pms/finace_service/controllers/ExpensesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/finace-service/src/main/java/com/pms/finace_service/controllers/ExpensesController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/finace-service/target/classes/com/pms/finace_service/controllers/FinanceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/finace-service/target/classes/com/pms/finace_service/controllers/FinanceController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/finace-service/target/classes/com/pms/finace_service/dto/ExpensesList.class" beforeDir="false" afterPath="$PROJECT_DIR$/finace-service/target/classes/com/pms/finace_service/dto/ExpensesList.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/finace-service/target/classes/com/pms/finace_service/dto/IncomeList.class" beforeDir="false" afterPath="$PROJECT_DIR$/finace-service/target/classes/com/pms/finace_service/dto/IncomeList.class" afterDir="false" />
@@ -22,11 +35,12 @@
       <change beforePath="$PROJECT_DIR$/finace-service/target/classes/com/pms/finace_service/services/FinanceList.class" beforeDir="false" afterPath="$PROJECT_DIR$/finace-service/target/classes/com/pms/finace_service/services/FinanceList.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/finace-service/target/classes/com/pms/finace_service/services/FinanceMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/finace-service/target/classes/com/pms/finace_service/services/FinanceMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/finace-service/target/classes/com/pms/finace_service/services/FinanceService.class" beforeDir="false" afterPath="$PROJECT_DIR$/finace-service/target/classes/com/pms/finace_service/services/FinanceService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/medication-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/medication-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/monitoring-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/monitoring-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/medication-service/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-server/.vscode/settings.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/user-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-server/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-server/src/main/java/com/pms/user_server/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-server/src/main/java/com/pms/user_server/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-server/src/main/java/com/pms/user_server/UserServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-server/src/main/java/com/pms/user_server/UserServerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-server/src/main/java/com/pms/user_server/clients/FarmClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-server/src/main/java/com/pms/user_server/clients/FarmClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-server/src/main/java/com/pms/user_server/clients/FinanceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-server/src/main/java/com/pms/user_server/clients/FinanceClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-server/target/classes/com/pms/user_server/clients/FinanceClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/user-server/target/classes/com/pms/user_server/clients/FinanceClient.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-server/target/classes/com/pms/user_server/dto/UserSalaryRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/user-server/target/classes/com/pms/user_server/dto/UserSalaryRequest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-server/target/classes/com/pms/user_server/dto/client/ExpenseUserSalaryRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/user-server/target/classes/com/pms/user_server/dto/client/ExpenseUserSalaryRequest.class" afterDir="false" />
@@ -66,6 +80,9 @@
     &quot;accountId&quot;: &quot;6d3e6669-117e-463f-ad8d-be10321c602c&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -134,11 +151,11 @@
       <recent name="$PROJECT_DIR$/finace-service/src/main/java/com/pms/finace_service" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.pms.monitoring_service.kafka" />
-      <recent name="com.pms.notification_service.kafka.MonitoringDTO" />
-      <recent name="com.pms.farm_service.dto" />
-      <recent name="com.pms.chick_service.client" />
-      <recent name="com.pms.finace_service.clients" />
+      <recent name="com.pms.chick_service.config" />
+      <recent name="com.pms.farm_service.config" />
+      <recent name="com.pms.feed_service.config" />
+      <recent name="com.pms.finace_service.config" />
+      <recent name="com.pms.medication_service.config" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -304,6 +321,14 @@
       <workItem from="1728715060329" duration="3533000" />
       <workItem from="1728804213694" duration="6434000" />
       <workItem from="1728812379138" duration="1350000" />
+      <workItem from="1728827936251" duration="1067000" />
+      <workItem from="1728889248577" duration="568000" />
+      <workItem from="1728890633067" duration="9737000" />
+      <workItem from="1728913305162" duration="425000" />
+      <workItem from="1728914334763" duration="2005000" />
+      <workItem from="1728922989701" duration="205000" />
+      <workItem from="1729087626987" duration="61000" />
+      <workItem from="1729094301723" duration="2784000" />
     </task>
     <servers />
   </component>

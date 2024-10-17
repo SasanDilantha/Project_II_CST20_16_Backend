@@ -1,4 +1,6 @@
 spring:
+  main:
+    allow-bean-definition-overriding: true
   security:
     oauth2:
       resourceserver:
@@ -21,5 +23,16 @@ spring:
 #    baseline-version: 0
 #    user: ${spring.datasource.username}
 #    password: ${spring.datasource.password}
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG  # Enable debug logs for Spring Security
+        auth2:
+          server:
+            resource: DEBUG # Enable debug logs for OAuth2 Resource Server
+
 server:
   port: 8040
+
