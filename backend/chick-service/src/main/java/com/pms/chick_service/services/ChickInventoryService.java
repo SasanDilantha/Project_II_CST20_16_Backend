@@ -3,7 +3,6 @@ package com.pms.chick_service.services;
 import com.pms.chick_service.client.ExpenseClient;
 import com.pms.chick_service.client.FarmClient;
 import com.pms.chick_service.dto.*;
-import com.pms.chick_service.dto.client.FromChickMortality;
 import com.pms.chick_service.dto.client.ToChickBlockDetails;
 import com.pms.chick_service.dto.ui.response.BlockDetails;
 import com.pms.chick_service.dto.ui.response.FarmUiResponse;
@@ -15,6 +14,8 @@ import com.pms.chick_service.repository.ChickInventoryRepository;
 import com.pms.chick_service.repository.ChickInventryCostRepository;
 import com.pms.chick_service.repository.ChickStorageRepository;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,9 +23,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 @Service
 @RequiredArgsConstructor

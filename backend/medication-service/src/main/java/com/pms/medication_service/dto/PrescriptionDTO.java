@@ -1,6 +1,5 @@
 package com.pms.medication_service.dto;
 
-import java.time.LocalDate;
 import java.util.List;
 
 public record PrescriptionDTO(

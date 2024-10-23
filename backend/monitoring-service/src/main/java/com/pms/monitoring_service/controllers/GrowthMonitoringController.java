@@ -2,7 +2,6 @@ package com.pms.monitoring_service.controllers;
 
 import com.pms.monitoring_service.dto.MonitoringResponse;
 import com.pms.monitoring_service.dto.SensorData;
-
 import com.pms.monitoring_service.kafka.MonitoringNotifications;
 import com.pms.monitoring_service.services.MonitoringService;
 import lombok.RequiredArgsConstructor;

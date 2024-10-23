@@ -1,9 +1,4 @@
 spring:
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: http://127.0.0.1:7070/realms/PoultryFarmSystem # Keycloak Realm URL
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/notification_service?createDatabaseIfNotExist=true
@@ -15,14 +10,14 @@ spring:
     database: mysql
     database-platform: org.hibernate.dialect.MySQL8Dialect
   kafka:
+    bootstrap-servers: localhost:9092
     consumer:
-      bootstrap-servers: 127.0.0.1:9092
-      group-id: monitoring-group
+      group-id: notification-group
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-      properties:
-        spring.json.trusted.packages: '*'
-        spring.json.type.mapping: monitoringNotifications:com.pms.monitoring_service.kafka.MonitoringNotifications
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
 server:
   port: 8070

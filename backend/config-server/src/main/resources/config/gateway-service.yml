@@ -1,11 +1,6 @@
 server:
   port: 8222
 spring:
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: http://127.0.0.1:7070/realms/PoultryFarmSystem # Keycloak Realm URL
   cloud:
     gateway:
       discovery:
@@ -16,51 +11,27 @@ spring:
           uri: lb:http://FARM-SERVICE
           predicates:
             - Path=/api/farm/**
-          filters:
-            - name: TokenRelay  # Pass the JWT token downstream
-        - id: user-server
+        - id : user-server
           uri: lb:http://USER-SERVER
           predicates:
             - Path=/api/user/**
-          filters:
-            - name: TokenRelay
-        - id: chick-service
+        - id : chick-service
           uri: lb:http://CHICK-SERVICE
           predicates:
             - Path=/api/chick/**
-          filters:
-            - name: TokenRelay
-        - id: finace-service
+        - id : finace-service
           uri: lb:http://FINACE-SERVICE
           predicates:
             - Path=/api/fin/**
-          filters:
-            - name: TokenRelay
-        - id: feed-service
+        - id : feed-service
           uri: lb:http://FEED-SERVICE
           predicates:
             - Path=/api/feed/**
-          filters:
-            - name: TokenRelay
-        - id: medication-service
+        - id : medication-service
           uri: lb:http://MEDICATION-SERVICE
           predicates:
             - Path=/api/med/**
-          filters:
-            - name: TokenRelay
         - id: monitoring-service
           uri: lb:http://MONITORING-SERVICE
           predicates:
             - Path=/api/moni/**
-          filters:
-            - name: TokenRelay
-        - id: notification-service
-          uri: lb:http://NOTIFICATION-SERVICE
-          predicates:
-            - Path=/api/notify/**
-          filters:
-            - name: TokenRelay
-
-jwt:
-  keycloak:
-    issuer-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}

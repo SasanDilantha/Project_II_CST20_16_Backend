@@ -3,7 +3,6 @@ package com.pms.farm_service.controllers;
 import com.pms.farm_service.dto.GetPlacementResponse;
 import com.pms.farm_service.dto.PlacementRequest;
 import com.pms.farm_service.dto.PlacementResponse;
-import com.pms.farm_service.model.Placement;
 import com.pms.farm_service.service.PlacementService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

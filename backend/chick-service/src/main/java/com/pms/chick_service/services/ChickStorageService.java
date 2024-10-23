@@ -2,7 +2,6 @@ package com.pms.chick_service.services;
 
 import com.pms.chick_service.client.FarmClient;
 import com.pms.chick_service.dto.ChickInventoryRequest;
-import com.pms.chick_service.dto.StorageTest;
 import com.pms.chick_service.dto.client.FromChickMortality;
 import com.pms.chick_service.model.ChickStorage;
 import com.pms.chick_service.repository.ChickStorageRepository;
@@ -13,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -21,13 +19,10 @@ public class ChickStorageService {
     private final ChickStorageRepository chickStorageRepository;
     private final ChickStorageMapper mapper;
 
-    private final ChickInventoryService ins;
-
     private final FarmClient farmClient;
 
     // get init weight by placement id
-    public Float testChickStorageService(Integer placementId){
-        Integer inventoryId = ins.getInventoryIdByPlacementId(placementId);
+    public Float testChickStorageService(Integer placementId, Integer inventoryId){
         return chickStorageRepository.findInitWeightByPlacementId(placementId, inventoryId);
     }
 
@@ -58,9 +53,8 @@ public class ChickStorageService {
     }
 
     // get mortality details by using placement id for monitoring
-    public FromChickMortality getMortalityDetails(Integer placementId) {
+    public FromChickMortality getMortalityDetails(Integer placementId, Integer inventoryId) {
         var farmDetails = farmClient.getMortalityDetails(placementId);
-        Integer inventoryId = ins.getInventoryIdByPlacementId(placementId);
         Integer initChickCount = chickStorageRepository.findInitChickCountByPlacementId(placementId, inventoryId);
 
         return new FromChickMortality(

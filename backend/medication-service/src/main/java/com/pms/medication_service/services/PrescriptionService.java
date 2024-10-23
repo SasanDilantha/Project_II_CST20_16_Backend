@@ -5,13 +5,13 @@ import com.pms.medication_service.dto.RecommendMedicationDTO;
 import com.pms.medication_service.model.MedicationBlock;
 import com.pms.medication_service.model.MedicationInventory;
 import com.pms.medication_service.model.MedicationStorage;
-import com.pms.medication_service.model.prescription.Prescription;
-import com.pms.medication_service.model.prescription.RecommendMedication;
-import com.pms.medication_service.repository.*;
+import com.pms.medication_service.repository.MedicationBlockRepository;
+import com.pms.medication_service.repository.MedicationInventoryRepository;
+import com.pms.medication_service.repository.PrescriptionRepository;
+import com.pms.medication_service.repository.RecommendMedicationRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.Optional;
 
 @Service

@@ -2,10 +2,8 @@ package com.pms.monitoring_service.services;
 
 
 import com.pms.monitoring_service.clients.ChickClient;
-
 import com.pms.monitoring_service.dto.MonitoringResponse;
 import com.pms.monitoring_service.dto.SensorData;
-
 import com.pms.monitoring_service.kafka.MonitoringNotifications;
 import com.pms.monitoring_service.kafka.NotificationProducer;
 import com.pms.monitoring_service.model.GrowthMonitoring;
@@ -18,9 +16,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Comparator;
 import java.util.List;
-import java.util.OptionalDouble;
 
 @Service
 @RequiredArgsConstructor

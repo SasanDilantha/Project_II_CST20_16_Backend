@@ -11,8 +11,7 @@ import java.util.List;
 
 @FeignClient(
         name = "farm-service",
-        url = "http://localhost:8222/api/farm",
-        configuration = FeignConfig.class   // Ensure FeignConfig is used here
+        url = "http://localhost:8222/api/farm"
 )
 public interface FarmClient {
 
