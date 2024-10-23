@@ -53,6 +53,14 @@ services:
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
     networks:
       - microservices-net
+  keycloak:
+    image: quay.io/keycloak/keycloak:latest
+    environment:
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=dev-admin
+    command: start-dev
+    ports:
+      - 7070:8080
 networks:
   microservices-net:
     driver: bridge

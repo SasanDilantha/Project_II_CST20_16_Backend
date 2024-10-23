@@ -1,13 +1,12 @@
 package com.pms.chick_service.controllers;
 
-import com.pms.chick_service.dto.*;
+import com.pms.chick_service.dto.BlockRequest;
+import com.pms.chick_service.dto.ChickInventoryRequest;
+import com.pms.chick_service.dto.InvetoryResponse;
+import com.pms.chick_service.dto.MortalityRequest;
 import com.pms.chick_service.dto.client.FromChickMortality;
-import com.pms.chick_service.dto.client.ToChickBlockDetails;
 import com.pms.chick_service.dto.ui.response.BlockDetails;
 import com.pms.chick_service.dto.ui.response.FarmUiResponse;
-import com.pms.chick_service.model.ChickBlock;
-import com.pms.chick_service.model.ChickStorage;
-import com.pms.chick_service.services.ChickBlockTest;
 import com.pms.chick_service.services.ChickInventoryService;
 import com.pms.chick_service.services.ChickStorageService;
 import lombok.RequiredArgsConstructor;
@@ -64,12 +63,14 @@ public class ChickInventoryController {
 
     @GetMapping("/mortality/data/{placement-id}")
     public FromChickMortality getMortalityDetailsById(@PathVariable("placement-id") Integer placementId){
-        return storageService.getMortalityDetails(placementId);
+        Integer inventory_id = service.getInventoryIdByPlacementId(placementId);
+        return storageService.getMortalityDetails(placementId, inventory_id);
     }
 
     @GetMapping("/init/weight/{placement-id}")
     public Float getInitWeight(@PathVariable("placement-id") Integer placementId){
-        return storageService.testChickStorageService(placementId);
+        Integer inventory_id = service.getInventoryIdByPlacementId(placementId);
+        return storageService.testChickStorageService(placementId, inventory_id);
     }
 
     @GetMapping("/get/inventory/{placement-id}")

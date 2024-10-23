@@ -22,6 +22,11 @@ public class UserController {
     // inject the service object
     private final UserService service;
 
+    @GetMapping("/")
+    public String home() {
+        return "Welcome to User Server";
+    }
+
     // register user
     @PostMapping
     public ResponseEntity<String> addUser(@RequestBody @Valid UserRequest request) {

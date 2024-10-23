@@ -1,7 +1,5 @@
 package com.pms.user_server.dto.ui.users;
 
-import java.math.BigDecimal;
-
 public record UserUiResponse(
         Integer user_id,
         String first_name,

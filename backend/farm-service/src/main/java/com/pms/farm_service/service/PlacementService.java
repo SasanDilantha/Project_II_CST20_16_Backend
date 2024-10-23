@@ -4,7 +4,6 @@ import com.pms.farm_service.dto.GetPlacementResponse;
 import com.pms.farm_service.dto.PlacementRequest;
 import com.pms.farm_service.dto.PlacementResponse;
 import com.pms.farm_service.genarated.TableCode;
-import com.pms.farm_service.model.Placement;
 import com.pms.farm_service.repository.FarmRepository;
 import com.pms.farm_service.repository.PlacementRepository;
 import lombok.RequiredArgsConstructor;

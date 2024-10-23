@@ -8,8 +8,5 @@ spring:
     hibernate:
       ddl-auto: update
     database: mysql
-flask:
-  service:
-    url: http://127.0.0.1:5000
 server:
   port: 8080

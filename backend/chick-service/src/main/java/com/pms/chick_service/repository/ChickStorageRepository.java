@@ -1,6 +1,5 @@
 package com.pms.chick_service.repository;
 
-import com.pms.chick_service.dto.StorageTest;
 import com.pms.chick_service.model.ChickStorage;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

@@ -7,7 +7,6 @@ import com.pms.monitoring_service.dto.MonitoringResponse;
 import com.pms.monitoring_service.dto.ReportRequest;
 import com.pms.monitoring_service.repository.ReportRepository;
 import com.pms.monitoring_service.repository.WeightRecordRepository;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

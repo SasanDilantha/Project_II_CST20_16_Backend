@@ -1,13 +1,9 @@
 package com.pms.user_server.clients;
 
 import com.pms.user_server.dto.client.ExpenseUserSalaryRequest;
-import com.pms.user_server.dto.client.ToUserDetails;
 import com.pms.user_server.dto.client.ToUserSalary;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 

@@ -14,6 +14,7 @@ import java.util.List;
         url = "http://localhost:8222/api/farm"
 )
 public interface FarmClient {
+
     @GetMapping(value = "/code/{farm-code}", consumes = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity<Integer> getFarmIdbyFramCode(@PathVariable("farm-code") String farmCode);
 

@@ -3,7 +3,10 @@ package com.pms.medication_service.services;
 
 import com.pms.medication_service.dto.BlockRequest;
 import com.pms.medication_service.dto.MedicationInventoryRequest;
-import com.pms.medication_service.model.*;
+import com.pms.medication_service.model.MedicationBlock;
+import com.pms.medication_service.model.MedicationInventory;
+import com.pms.medication_service.model.MedicationInventoryCost;
+import com.pms.medication_service.model.MedicationStorage;
 import com.pms.medication_service.repository.MedicationInventoryCostRepository;
 import com.pms.medication_service.repository.MedicationStorageRepository;
 import org.springframework.stereotype.Service;
