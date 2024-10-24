@@ -20,4 +20,10 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     @Modifying
     @Query("UPDATE User user SET user.expense_id = :expenseId WHERE user.user_id = :userId")
     int updateExpenseId(@Param("expenseId") Integer expenseId, @Param("userId") Integer user_id);
+
+    @Query("SELECT COUNT(u) FROM User u " +
+            "LEFT JOIN Manager m ON u.user_id = m.user_id " +
+            "LEFT JOIN Veterinarian v ON u.user_id = v.user_id " +
+            "WHERE m.farm_id = :farmId OR v.farm_id = :farmId")
+    Integer countUsersByFarmId(@Param("farmId") Integer farmId);
 }

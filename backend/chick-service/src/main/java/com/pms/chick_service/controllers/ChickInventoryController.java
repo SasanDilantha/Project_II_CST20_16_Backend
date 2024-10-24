@@ -5,6 +5,7 @@ import com.pms.chick_service.dto.ChickInventoryRequest;
 import com.pms.chick_service.dto.InvetoryResponse;
 import com.pms.chick_service.dto.MortalityRequest;
 import com.pms.chick_service.dto.client.FromChickMortality;
+import com.pms.chick_service.dto.ui.InvetoryResponseForUi;
 import com.pms.chick_service.dto.ui.response.BlockDetails;
 import com.pms.chick_service.dto.ui.response.FarmUiResponse;
 import com.pms.chick_service.services.ChickInventoryService;
@@ -31,6 +32,11 @@ public class ChickInventoryController {
     @GetMapping
     public ResponseEntity<List<InvetoryResponse>> getAllInventory(){
         return ResponseEntity.ok(service.getAllInventory());
+    }
+
+    @GetMapping("/all/inventory/details")
+    public ResponseEntity<List<InvetoryResponseForUi>> getAllInventoryDetails(){
+        return ResponseEntity.ok(service.getAllInventoryForUi());
     }
 
     // get chick inventory details block wise

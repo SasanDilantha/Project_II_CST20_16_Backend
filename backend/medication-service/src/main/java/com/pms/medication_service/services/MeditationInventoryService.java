@@ -3,6 +3,8 @@ package com.pms.medication_service.services;
 import com.pms.medication_service.client.ExpenseClient;
 import com.pms.medication_service.client.FarmClient;
 import com.pms.medication_service.dto.*;
+import com.pms.medication_service.dto.client.ToExpenseInventory;
+import com.pms.medication_service.dto.ui.InvetoryResponseForUi;
 import com.pms.medication_service.model.MedicationBlock;
 import com.pms.medication_service.model.MedicationStorage;
 import com.pms.medication_service.repository.MedicationBlockRepository;
@@ -60,6 +62,38 @@ public class MeditationInventoryService {
                 .stream()
                 .map(inventoryMapper::fromAllInventory)
                 .collect(Collectors.toList());
+    }
+
+    public List<InvetoryResponseForUi> getAllInventoryForUi() {
+        // Retrieve all inventory data
+        List<InventoryResponse> invent = this.getAllInventory();
+
+        // Initialize the list that will hold the data for the UI
+        List<InvetoryResponseForUi> inventoryForUiList = new ArrayList<>();
+
+        // Loop through each inventory response
+        for (InventoryResponse inv : invent) {
+            // Fetch the expense information using the expense id
+            ToExpenseInventory expense = expenseClient.getExpenses(inv.expense_id());
+
+            // Create a new InvetoryResponseForUi object, filling in all the required fields
+            InvetoryResponseForUi inventoryForUi = new InvetoryResponseForUi(
+                    inv.med_inventory_id(),
+                    inv.med_inventory_code(),
+                    inv.available_quantity(),
+                    expense.expense_value(),  // Using the fetched expense value
+                    inv.med_type(),
+                    inv.supplier_name(),
+                    inv.supplier_mobile(),
+                    expense.date().toLocalDate()
+            );
+
+            // Add the newly created object to the list
+            inventoryForUiList.add(inventoryForUi);
+        }
+
+        // Return the list of inventory data formatted for the UI
+        return inventoryForUiList;
     }
 
     public List<FarmUiResponse> forFarmDetails() {

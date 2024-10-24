@@ -3,6 +3,8 @@ package com.pms.feed_service.services;
 import com.pms.feed_service.client.ExpenseClient;
 import com.pms.feed_service.client.FarmClient;
 import com.pms.feed_service.dto.*;
+import com.pms.feed_service.dto.client.ToExpenseInventory;
+import com.pms.feed_service.dto.ui.InvetoryResponseForUi;
 import com.pms.feed_service.model.FeedBlock;
 import com.pms.feed_service.model.FeedStorage;
 import com.pms.feed_service.repository.FeedBockRepository;
@@ -60,6 +62,38 @@ public class FeedInventoryService {
                 .stream()
                 .map(inventoryMapper::fromAllInventory)
                 .collect(Collectors.toList());
+    }
+
+    public List<InvetoryResponseForUi> getAllInventoryForUi() {
+        // Retrieve all inventory data
+        List<InventoryResponse> invent = this.getAllInventory();
+
+        // Initialize the list that will hold the data for the UI
+        List<InvetoryResponseForUi> inventoryForUiList = new ArrayList<>();
+
+        // Loop through each inventory response
+        for (InventoryResponse inv : invent) {
+            // Fetch the expense information using the expense id
+            ToExpenseInventory expense = expenseClient.getExpenses(inv.expense_id());
+
+            // Create a new InvetoryResponseForUi object, filling in all the required fields
+            InvetoryResponseForUi inventoryForUi = new InvetoryResponseForUi(
+                    inv.feed_inventory_id(),
+                    inv.feed_inventory_code(),
+                    inv.available_quantity(),
+                    expense.expense_value(),  // Using the fetched expense value
+                    inv.feed_type(),
+                    inv.supplier_name(),
+                    inv.supplier_mobile(),
+                    expense.date().toLocalDate()
+            );
+
+            // Add the newly created object to the list
+            inventoryForUiList.add(inventoryForUi);
+        }
+
+        // Return the list of inventory data formatted for the UI
+        return inventoryForUiList;
     }
 
     public List<FarmUiResponse> forFarmDetails() {

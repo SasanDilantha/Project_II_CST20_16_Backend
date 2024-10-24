@@ -1,6 +1,7 @@
 package com.pms.finace_service.controllers;
 
 import com.pms.finace_service.dto.ExpenseRequest;
+import com.pms.finace_service.dto.client.ToExpenseInventory;
 import com.pms.finace_service.dto.client.ToUserSalary;
 import com.pms.finace_service.dto.client.request.ExpenseUserSalaryRequest;
 import com.pms.finace_service.services.ExpensesService;
@@ -56,5 +57,10 @@ public class ExpensesController {
     @GetMapping("/chick_inventory")
     public ResponseEntity<String> checkPath(){
         return ResponseEntity.ok("Expense Chicken Inventory");
+    }
+
+    @GetMapping("/chick_inventory/{expenseId}")
+    public ToExpenseInventory getExpenses(@PathVariable("expenseId") Integer expenseId){
+        return service.getExpenseInventoryById(expenseId);
     }
 }

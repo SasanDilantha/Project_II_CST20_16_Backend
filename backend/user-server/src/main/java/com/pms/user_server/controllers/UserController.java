@@ -95,4 +95,10 @@ public class UserController {
         return ResponseEntity.ok(service.updateOrSetSalary(request));
     }
 
+    // count users by farm id
+    @GetMapping("/count/{farm-id}")
+    public ResponseEntity<Integer> countUsersByFarmId(@PathVariable("farm-id") Integer farmId) {
+        return ResponseEntity.ok(service.countUsersByFarmId(farmId));
+    }
+
 }
