@@ -1,0 +1,13 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: flask_app_iot
+    ports:
+      - 5000:5000
+    environment:
+      - FLASK_APP=app
+      - FLASK_HOST=192.168.1.5
+    volumes:
+      - .:/app
