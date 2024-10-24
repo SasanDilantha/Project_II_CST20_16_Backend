@@ -12,6 +12,7 @@ import com.pms.user_server.dto.ui.UserUpadeRequest;
 import com.pms.user_server.dto.ui.users.ManagerVetDetails;
 import com.pms.user_server.dto.ui.users.UserUiResponse;
 import com.pms.user_server.exceptions.UserServiceException;
+import com.pms.user_server.model.User;
 import com.pms.user_server.repository.ManagerRepository;
 import com.pms.user_server.repository.UserRepository;
 import com.pms.user_server.repository.VeterinarianRepository;
@@ -22,6 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -239,5 +241,47 @@ public class UserService {
     // count users by farm id
     public Integer countUsersByFarmId(Integer farmId) {
         return userRepository.countUsersByFarmId(farmId);
+    }
+
+    // check passwordIsCorrect
+    public Boolean passwordIsCorrect(Integer userId, String password) {
+        var user = userRepository.findById(userId);
+        try {
+            if (user.isEmpty()) {
+                return false;
+            }
+            String userPassword = EncryptionUtils.decrypt(user.get().getPassword());
+            return password.equals(userPassword);
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    // Update User
+    public User updateUser(Integer userId, User updatedUser) {
+        Optional<User> existingUserOptional = userRepository.findById(userId);
+
+        if (existingUserOptional.isPresent()) {
+            User existingUser = existingUserOptional.get();
+            // Update the fields here
+            existingUser.setFirst_name(updatedUser.getFirst_name());
+            existingUser.setLast_name(updatedUser.getLast_name());
+            existingUser.setEmail(updatedUser.getEmail());
+            existingUser.setPhone(updatedUser.getPhone());
+            existingUser.setPassword(updatedUser.getPassword()); // Remember to hash the password if not hashed.
+            existingUser.setRole(updatedUser.getRole());
+            return userRepository.save(existingUser);
+        } else {
+            throw new RuntimeException("User not found with id: " + userId);
+        }
+    }
+
+    // Delete User
+    public void deleteUser(Integer userId) {
+        if (userRepository.existsById(userId)) {
+            userRepository.deleteById(userId);
+        } else {
+            throw new RuntimeException("User not found with id: " + userId);
+        }
     }
 }

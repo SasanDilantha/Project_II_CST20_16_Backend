@@ -11,5 +11,4 @@ public record UserUiResponse(
         String farm_code,
         String salary
 
-) {
-}
+) { }

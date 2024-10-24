@@ -41,4 +41,11 @@ public class PlacementController {
     public String findPlacementCodeById(@PathVariable("placement-id") Integer placementId){
         return service.getPlacementCodeById(placementId);
     }
+
+    // Endpoint to get farm name by placement ID
+    @GetMapping("/farm-name/{placementId}")
+    public ResponseEntity<String> getFarmNameByPlacementId(@PathVariable("placementId") Integer placementId) {
+        String farmName = service.getFarmNameByPlacementId(placementId);
+        return ResponseEntity.ok(farmName);
+    }
 }

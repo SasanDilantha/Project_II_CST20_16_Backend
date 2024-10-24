@@ -59,4 +59,21 @@ public class PlacementService {
     public String getPlacementCodeById(Integer placementId) {
         return placementRepository.findCodeById(placementId);
     }
+
+    /**
+     * Get the farm name based on the placement ID.
+     * @param placementId The ID of the placement.
+     * @return The name of the farm associated with the placement.
+     */
+    public String getFarmNameByPlacementId(Integer placementId) {
+        // Find the placement by its ID
+        var placement = placementRepository.findById(placementId)
+                .orElseThrow(() -> new RuntimeException("Placement not found with id: " + placementId));
+
+        // Get the farm ID from the placement
+        Integer farmId = placement.getFarm().getFarm_id();
+
+        // Use FarmService to get the farm name by the farm ID
+        return farmService.getFarmNameById(farmId);
+    }
 }

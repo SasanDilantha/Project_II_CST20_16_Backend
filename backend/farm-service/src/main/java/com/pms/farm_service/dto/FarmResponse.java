@@ -5,5 +5,4 @@ public record FarmResponse(
         String farm_name,
         String farm_location,
         String farm_code
-) {
-}
+) { }

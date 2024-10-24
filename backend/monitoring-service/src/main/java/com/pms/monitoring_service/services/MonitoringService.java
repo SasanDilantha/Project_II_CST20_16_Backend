@@ -2,6 +2,7 @@ package com.pms.monitoring_service.services;
 
 
 import com.pms.monitoring_service.clients.ChickClient;
+import com.pms.monitoring_service.clients.FarmClient;
 import com.pms.monitoring_service.dto.MonitoringResponse;
 import com.pms.monitoring_service.dto.SensorData;
 import com.pms.monitoring_service.kafka.MonitoringNotifications;
@@ -29,6 +30,7 @@ public class MonitoringService {
     private final IoTSensorDataService ioTSensorDataService;
     private final ChickClient chickClient;
     private final NotificationProducer notificationProducer;
+    private final FarmClient farmClient;
 
     public LocalDateTime getChickStorageById(Integer placementId) {
         LocalDateTime initDate = chickClient.getChickStorageById(placementId);
@@ -96,6 +98,9 @@ public class MonitoringService {
      */
     // Get the latest growth monitoring record for a placement
     public MonitoringResponse getLatestGrowthMonitoringRecord(Integer placementId) {
+        //get farm name
+        String farmName = String.valueOf(farmClient.getFarmNameByPlacementId(placementId));
+
         //get Inventory id
         Integer inventoryId = chickClient.getInventoryIdByPlacementId(placementId);
         // Find the latest growth monitoring record for the given placement ID
@@ -122,6 +127,7 @@ public class MonitoringService {
 
 
         return new MonitoringResponse(
+                farmName,
                 weightGain,
                 feedConversionRatio,
                 mortalityRate,

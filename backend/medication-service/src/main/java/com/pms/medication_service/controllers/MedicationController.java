@@ -1,6 +1,7 @@
 package com.pms.medication_service.controllers;
 
 import com.pms.medication_service.dto.*;
+import com.pms.medication_service.dto.ui.InvetoryResponseForUi;
 import com.pms.medication_service.services.MeditationInventoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +24,11 @@ public class MedicationController {
     @GetMapping
     public ResponseEntity<List<InventoryResponse>> getAllInventory(){
         return ResponseEntity.ok(service.getAllInventory());
+    }
+
+    @GetMapping("/all/inventory/details")
+    public ResponseEntity<List<InvetoryResponseForUi>> getAllInventoryDetails(){
+        return ResponseEntity.ok(service.getAllInventoryForUi());
     }
 
     // get feed inventory details block wise

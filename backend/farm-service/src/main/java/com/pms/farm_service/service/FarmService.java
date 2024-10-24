@@ -59,4 +59,11 @@ public class FarmService {
         List<FarmResponse> farm_list = this.getAllFarms(); // get all farm details and after map it
         return mapper.toUserDetails(farm_list);
     }
+
+    public String getFarmNameById(Integer farmId) {
+        return farmRepository.findById(farmId)
+                .map(farm -> farm.getFarm_name())
+                .orElseThrow(() -> new RuntimeException("Farm not found with id: " + farmId));
+    }
+
 }

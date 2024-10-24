@@ -13,8 +13,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
         <option value="Record" />
       </list>
     </option>
@@ -57,11 +57,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.pms.user_server.dto" />
       <recent name="com.pms.medication_service.dto.ui" />
       <recent name="com.pms.feed_service.dto.ui" />
       <recent name="com.pms.chick_service.dto.ui" />
       <recent name="com.pms.monitoring_service.dto" />
-      <recent name="com.pms.monitoring_service.services" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/user-server/src/main/java/com/pms" />
@@ -203,7 +203,12 @@
       <workItem from="1729682507769" duration="1484000" />
       <workItem from="1729684089537" duration="692000" />
       <workItem from="1729684987257" duration="14494000" />
-      <workItem from="1729741471448" duration="420000" />
+      <workItem from="1729741471448" duration="552000" />
+      <workItem from="1729749838460" duration="3178000" />
+      <workItem from="1729774249564" duration="1091000" />
+      <workItem from="1729776485603" duration="431000" />
+      <workItem from="1729777636422" duration="11880000" />
+      <workItem from="1729793420873" duration="5419000" />
     </task>
     <servers />
   </component>

@@ -1,12 +1,10 @@
 package com.pms.user_server.controllers;
 
-import com.pms.user_server.dto.UserLoginRequest;
-import com.pms.user_server.dto.UserRequest;
-import com.pms.user_server.dto.UserResponse;
-import com.pms.user_server.dto.UserSalaryRequest;
+import com.pms.user_server.dto.*;
 import com.pms.user_server.dto.ui.UserUpadeRequest;
 import com.pms.user_server.dto.ui.users.ManagerVetDetails;
 import com.pms.user_server.dto.ui.users.UserUiResponse;
+import com.pms.user_server.model.User;
 import com.pms.user_server.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -99,6 +97,26 @@ public class UserController {
     @GetMapping("/count/{farm-id}")
     public ResponseEntity<Integer> countUsersByFarmId(@PathVariable("farm-id") Integer farmId) {
         return ResponseEntity.ok(service.countUsersByFarmId(farmId));
+    }
+
+    // check passwordIsCorrect
+    @PostMapping("/check/password")
+    public ResponseEntity<Boolean> passwordIsCorrect(@RequestBody CheckPassword request) {
+        return ResponseEntity.ok(service.passwordIsCorrect(request.userId(), request.password()));
+    }
+
+    // Update User Endpoint
+    @PutMapping("/update/{userId}")
+    public ResponseEntity<User> updateUser(@PathVariable Integer userId, @RequestBody User updatedUser) {
+        User user = service.updateUser(userId, updatedUser);
+        return ResponseEntity.ok(user);
+    }
+
+    // Delete User Endpoint
+    @DeleteMapping("/del/{userId}")
+    public ResponseEntity<Void> deleteUser(@PathVariable Integer userId) {
+        service.deleteUser(userId);
+        return ResponseEntity.noContent().build();
     }
 
 }

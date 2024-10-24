@@ -18,11 +18,11 @@ public class ChickMortalityService {
     private final ChickClient chickClient;
 
     public String addChickMortality(ChickMortalityRequest request) {
-        Integer placement_id = placementService.getPlacementIdByPlacementCode(request.placement_code());
+        Integer placement_id = request.placement_id();
         var mortality = chickMortalityRepository.save(mapper.toMortality(request, placement_id, repository));
         // out put the updated a.q
         Integer updateInventory = this.chickClient.updateMortality(mapper.toInventory(mortality));
-        return ("Successfully updated chicken mortality in Placement:: " + request.placement_code() + ", and New Available in Inventory:: " + updateInventory);
+        return ("Successfully updated chicken mortality in Placement:: " + request.placement_id() + ", and New Available in Inventory:: " + updateInventory);
     }
 
     public ToChickBlockDetails getMortalityDetails(Integer placementId) {
