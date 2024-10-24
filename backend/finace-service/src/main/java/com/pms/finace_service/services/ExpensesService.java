@@ -2,6 +2,7 @@ package com.pms.finace_service.services;
 
 import com.pms.finace_service.clients.FarmClient;
 import com.pms.finace_service.dto.ExpenseRequest;
+import com.pms.finace_service.dto.client.ToExpenseInventory;
 import com.pms.finace_service.dto.client.ToUserSalary;
 import com.pms.finace_service.dto.client.request.ExpenseUserSalaryRequest;
 import com.pms.finace_service.repository.ExpensesRepository;
@@ -47,5 +48,11 @@ public class ExpensesService {
                 .stream()
                 .map(mapper::toUserSalary)
                 .collect(Collectors.toList());
+    }
+
+    public ToExpenseInventory getExpenseInventoryById(Integer expenseId) {
+        return expensesRepository.findById(expenseId)
+                .map(mapper::toExpenseInventory)
+                .orElseThrow(() -> new RuntimeException("Expense not found"));
     }
 }

@@ -235,4 +235,9 @@ public class UserService {
                 .collect(Collectors.toList());
 
     }
+
+    // count users by farm id
+    public Integer countUsersByFarmId(Integer farmId) {
+        return userRepository.countUsersByFarmId(farmId);
+    }
 }

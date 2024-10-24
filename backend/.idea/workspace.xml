@@ -14,8 +14,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
-        <option value="Record" />
         <option value="Interface" />
+        <option value="Record" />
       </list>
     </option>
   </component>
@@ -57,6 +57,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.pms.medication_service.dto.ui" />
+      <recent name="com.pms.feed_service.dto.ui" />
+      <recent name="com.pms.chick_service.dto.ui" />
       <recent name="com.pms.monitoring_service.dto" />
       <recent name="com.pms.monitoring_service.services" />
     </key>
@@ -68,6 +71,9 @@
       <recent name="$PROJECT_DIR$/finace-service/src/main/java/com/pms" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.pms.medication_service.dto.client" />
+      <recent name="com.pms.feed_service.dto.client" />
+      <recent name="com.pms.chick_service.dto.client" />
       <recent name="com.pms.monitoring_service.clients" />
       <recent name="com.pms.monitoring_service.controllers" />
     </key>
@@ -79,7 +85,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ApiGatewayApplication">
+  <component name="RunManager" selected="Spring Boot.ConfigServertApplication">
     <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="api-gateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.pms.api_gateway.ApiGatewayApplication" />
@@ -194,10 +200,17 @@
       <workItem from="1729662736687" duration="1992000" />
       <workItem from="1729674671811" duration="1397000" />
       <workItem from="1729678110330" duration="815000" />
+      <workItem from="1729682507769" duration="1484000" />
+      <workItem from="1729684089537" duration="692000" />
+      <workItem from="1729684987257" duration="14494000" />
+      <workItem from="1729741471448" duration="420000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/backend$ConfigServertApplication.ic" NAME="ConfigServertApplication Coverage Results" MODIFIED="1729682922540" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>

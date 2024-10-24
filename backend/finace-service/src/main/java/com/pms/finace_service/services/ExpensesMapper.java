@@ -1,6 +1,7 @@
 package com.pms.finace_service.services;
 
 import com.pms.finace_service.dto.ExpenseRequest;
+import com.pms.finace_service.dto.client.ToExpenseInventory;
 import com.pms.finace_service.dto.client.ToUserSalary;
 import com.pms.finace_service.dto.client.request.ExpenseUserSalaryRequest;
 import com.pms.finace_service.model.Expense;
@@ -58,6 +59,13 @@ public class ExpensesMapper {
                 expenses.getExpense_id(),
                 expenses.getExpense_value(),
                 expenses.getFarm_code()
+        );
+    }
+
+    public ToExpenseInventory toExpenseInventory(Expenses expenses) {
+        return new ToExpenseInventory(
+                expenses.getDate(),
+                expenses.getExpense_value()
         );
     }
 }

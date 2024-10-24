@@ -4,6 +4,8 @@ import com.pms.chick_service.client.ExpenseClient;
 import com.pms.chick_service.client.FarmClient;
 import com.pms.chick_service.dto.*;
 import com.pms.chick_service.dto.client.ToChickBlockDetails;
+import com.pms.chick_service.dto.client.ToExpenseInventory;
+import com.pms.chick_service.dto.ui.InvetoryResponseForUi;
 import com.pms.chick_service.dto.ui.response.BlockDetails;
 import com.pms.chick_service.dto.ui.response.FarmUiResponse;
 import com.pms.chick_service.model.ChickBlock;
@@ -119,6 +121,40 @@ public class ChickInventoryService {
                 .map(mapper::fromAllInventory)
                 .collect(Collectors.toList());
     }
+
+    public List<InvetoryResponseForUi> getAllInventoryForUi() {
+        // Retrieve all inventory data
+        List<InvetoryResponse> invent = this.getAllInventory();
+
+        // Initialize the list that will hold the data for the UI
+        List<InvetoryResponseForUi> inventoryForUiList = new ArrayList<>();
+
+        // Loop through each inventory response
+        for (InvetoryResponse inv : invent) {
+            // Fetch the expense information using the expense id
+            ToExpenseInventory expense = expenseClient.getExpenses(inv.expense_id());
+
+            // Create a new InvetoryResponseForUi object, filling in all the required fields
+            InvetoryResponseForUi inventoryForUi = new InvetoryResponseForUi(
+                    inv.chick_inventory_id(),
+                    inv.chick_inventory_code(),
+                    inv.available_quantity(),
+                    expense.expense_value(),  // Using the fetched expense value
+                    inv.chick_breed_name(),
+                    inv.age(),
+                    inv.supplier_name(),
+                    inv.supplier_mobile(),
+                    expense.date().toLocalDate()
+            );
+
+            // Add the newly created object to the list
+            inventoryForUiList.add(inventoryForUi);
+        }
+
+        // Return the list of inventory data formatted for the UI
+        return inventoryForUiList;
+    }
+
 
     public List<FarmUiResponse> forFarmDetails() {
         return chickInventoryRepository.findAll()

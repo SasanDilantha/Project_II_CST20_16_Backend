@@ -1,6 +1,7 @@
 package com.pms.feed_service.controllers;
 
 import com.pms.feed_service.dto.*;
+import com.pms.feed_service.dto.ui.InvetoryResponseForUi;
 import com.pms.feed_service.services.FeedInventoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +24,11 @@ public class FeedController {
     @GetMapping
     public ResponseEntity<List<InventoryResponse>> getAllInventory(){
         return ResponseEntity.ok(feedService.getAllInventory());
+    }
+
+    @GetMapping("/all/inventory/details")
+    public ResponseEntity<List<InvetoryResponseForUi>> getAllInventoryDetails(){
+        return ResponseEntity.ok(feedService.getAllInventoryForUi());
     }
 
     // get feed inventory details block wise
